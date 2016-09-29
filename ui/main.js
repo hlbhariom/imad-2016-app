@@ -6,8 +6,16 @@ console.log('Loaded!');
 var element = document.getElementById('jstest-text');
 element.innerHTML='This text has been changed using Javascript.';
 
-//Move Image
+//Move image gradually right if clicked.
 var img=document.getElementById('img');
+var marginLeft=0;
+function moveRight(){
+    marginLeft=marginLeft + 10;
+    img.style.marginLeft=marginLeft+'px';
+}
 img.onclick = function(){
-    img.style.marginLeft='100px';
+//Move Image Once towards right    img.style.marginLeft='100px';
+    var interval=setInterval(moveRight,50);
 };
+
+//Javascript must be called after an element Id is already declared. 
