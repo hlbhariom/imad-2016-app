@@ -123,7 +123,7 @@ app.get('/:articleName', function (req, res) {  //':' symbol lets the articleNam
 
 //Javascript Response
 app.get('/ui/main.js',function(req,res){
-    res.sendFile(path.join(_dirname,'ui','main.js'));
+    res.sendFile(path.join(__dirname,'ui','main.js'));
 });
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
