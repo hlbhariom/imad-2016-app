@@ -1,5 +1,5 @@
-var express = require('express');
-var morgan = require('morgan');
+var express = require('express');  //Express frameork object
+var morgan = require('morgan');  //Morgan Framework object
 var path = require('path');
 
 var app = express();
@@ -9,6 +9,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+//Array of 'data' objects 'articles'
 var articles={
    'article-four': {
    title:'Article Four | Hariom',
@@ -41,6 +42,7 @@ var articles={
 
 `}
 };
+//Single 'data' object 'articleThree'
 var articleThree= {
    title:'Article Three | Hariom',
    heading:'Article Three',
@@ -56,6 +58,8 @@ var articleThree= {
              </p>
 
 `};
+
+//Function that takes data object as arguement and returns htmlTemplate.
 function createTemplate(data) {
     title=data.title;
     date=data.date;
@@ -91,13 +95,13 @@ function createTemplate(data) {
     return htmlTemplate;
 }
 
-
+//CSS Response
 app.get('/ui/style.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+  res.sendFile(path.join(__dirname, 'ui', 'style.css'));   //Respond to request 'req' using 'res'
 });
 
 app.get('/ui/madi.png', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
+  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));   //png Response
 });
 
 app.get('/article-one', function (req, res) {
@@ -105,16 +109,21 @@ app.get('/article-one', function (req, res) {
 });
 
 app.get('/article-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+  res.send('Article Two Will Be Served Here Soon...');  //Text Response
 });
 
 app.get('/article-three',function (req, res) {
     res.send(createTemplate(articleThree));
 });
 
-app.get('/:articleName', function (req, res) {
-    var articleName=req.params.articleName;
-  res.send(createTemplate(articles[articleName]));
+app.get('/:articleName', function (req, res) {  //':' symbol lets the articleName be a variable.
+    var articleName=req.params.articleName;   //articleName captured from requested url.
+  res.send(createTemplate(articles[articleName])); //Sending HTML Response
+});
+
+//Javascript Response
+app.get('/ui/main.js',function(req,res){
+    res.sendFile(path.join(_dirname,'ui','main.js'));
 });
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
