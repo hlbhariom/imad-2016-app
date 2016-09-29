@@ -10,7 +10,7 @@ element.innerHTML='This text has been changed using Javascript.';
 var img=document.getElementById('img');
 var marginLeft=0;
 function moveRight(){
-    marginLeft=marginLeft + 10;
+    marginLeft=marginLeft + 5;
     img.style.marginLeft=marginLeft+'px';
 }
 img.onclick = function(){
