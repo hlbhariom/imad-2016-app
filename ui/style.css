@@ -19,4 +19,7 @@ body {
 .img-medium {
     height: 200px;
 }
+.smaller-image{
+    width:10px;
+}
 
