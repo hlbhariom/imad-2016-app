@@ -1,21 +1,42 @@
-//Writes 'Loaded!' in console.
-console.log('Loaded!');
+var slideIndex = 1;
+showDivs(slideIndex);
 
-
-//Change text of 'jstest-text' div
-var element = document.getElementById('jstest-text');
-element.innerHTML='This text has been changed using Javascript.';
-
-//Move image gradually right if clicked.
-var img=document.getElementById('img');
-var marginLeft=0;
-function moveRight(){
-    marginLeft=marginLeft + 5;
-    img.style.marginLeft=marginLeft+'px';
+function plusDivs(n) {
+  showDivs(slideIndex += n);
 }
-img.onclick = function(){
-//Move Image Once towards right    img.style.marginLeft='100px';
-    var interval=setInterval(moveRight,50);
-};
 
-//Javascript must be called after an element Id is already declared. 
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " w3-white";
+}
+// Get the element with id="defaultOpen" and click on it
+
+
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
