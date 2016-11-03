@@ -33,6 +33,7 @@ function openCity(cityName) {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("tabdetails").innerHTML =this.responseText;
+            document.getElementById("tabdetails").display="block";
         }
     };
     xhttp.open("GET", "/"+cityName, true);
