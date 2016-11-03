@@ -112,8 +112,23 @@ app.get('/article-two', function (req, res) {
   res.send('Article Two Will Be Served Here Soon...');  //Text Response
 });
 
-app.get('/article-three',function (req, res) {
-    res.send(createTemplate(articleThree));
+app.get('/content',function (req, res) {
+    var content=`<div  class="contentwrapper tabcontent" id="newArticle">
+  <form action="##" method="post">
+  <fieldset>
+    <input type="text" name="category" placeholder="category"></input>
+    <br>
+    <input type="text" name="title" placeholder="title"></input>
+    <br>
+    <textarea class="contentdata">
+    </textarea>
+    <br>
+    <input type="submit" name="submit" value="Post"></input>
+    <br>
+  </fieldset>
+</form></div>
+    `;
+    res.send(content);
 });
 
 app.get('/:articleName', function (req, res) {  //':' symbol lets the articleName be a variable.
