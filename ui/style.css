@@ -271,7 +271,7 @@ ul.tab li a:focus, .active {
 }
 
 /* Style the tab content */
-.tabcontent {
+#tabdetails,.tabcontent {
     display: none;
     margin: 0 5 13 10;
     padding: 6px 12px;
@@ -281,3 +281,4 @@ ul.tab li a:focus, .active {
     border-bottom-left-radius: 32px;
     border-bottom-right-radius: 32px;
 }
+
