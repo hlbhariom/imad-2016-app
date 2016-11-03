@@ -1,29 +1,167 @@
-<!doctype html>
 <html>
-    <head>
-        <link href="/ui/style.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="center">
-            <img id="img" src="/ui/madi.png" class="img-medium"/>
-        </div>
-        <br>        
-        <div class="center text-big bold">
-            Hi! I am learning webapp development.
-		<h4>Changes are eternal</h4>
-		    Some Changes Occurred due to Javascript.
-        </div>
-        <div id='jstest-text'>
-            <b>
-                This is real text.
-            </b>
-        </div>
-        
-        <script>
-            alert('Hey User');  //Inline Javascript
-        </script>
-        <script type="text/javascript" src="/ui/main.js">   //Referencing Javascript. There must be a response setup in server.js for /ui/main.js
-        </script>
+<head>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="style.css" rel="stylesheet">
+  <title>Welcome to Blogpedia..!</title>
+</head>
 
-    </body>
+<body>
+<div class="row1">
+  <div id="banner">
+    <div class="logo">
+      <img src="logo.png">
+    </div>
+    <div id="blogname">
+      <header>Blogpedia</header>
+    </div>
+  </div>
+</div>
+
+<div class="row2">
+  <div class="navbar">
+    <ul>
+      <li><a class="hvr-pulse-grow" href="#">ABOUT US</a></li>
+      <li><a class="hvr-pulse-grow" href="#">LATEST NEWS</li>
+      <li><a class="hvr-pulse-grow" href="#">INSPIRATION</a></li>
+      <li><a class="hvr-pulse-grow" href="#">TECHNOLOGY</a></li>
+      <li><a class="hvr-pulse-grow" href="#">REVIEW</a></li>
+      <li><a class="hvr-pulse-grow" href="#">SUGGESTION</a></li>
+      <li><a class="hvr-pulse-grow" href="#">CELEBRITY</a></li>
+      <li><a class="hvr-pulse-grow" href="#">HOME</a></li>
+    </ul>
+  </div>
+</div>
+<div class="row3">
+  <div class="slideshow">
+
+  </div>
+</div>
+<ul class="tab">
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'content')" id="defaultOpen">Content</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'newArticle')">New Article</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'openArticle')">Tokyo</a></li>
+</ul>
+<script>document.getElementById("defaultOpen").click();</script>
+
+<!--div id="Boy" class="tabcontent">
+  <h3>London</h3>
+  <p>London is the capital city of England.</p>
+</div-->
+<div  class="contentwrapper tabcontent" id="newArticle">
+  <form action="##" method="post">
+  <fieldset>
+    <input type="text" name="category" placeholder="category"></input>
+    <br>
+    <input type="text" name="title" placeholder="title"></input>
+    <br>
+    <textarea class="contentdata">
+    </textarea>
+    <br>
+    <input type="submit" name="submit" value="Post"></input>
+    <br>
+  </fieldset>
+</form></div>
+<div id="openArticle" class="tabcontent">
+  <h3>Hello</h3>
+  <p>I am someone.</p>
+</div>
+
+<!--div class="row4"--->
+  <!--div class="second_nav">
+    <div id="login">
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Site Login</legend>
+          <input type="text" placeholder="Username"/>
+          <input type="password" placeholder="Password" style="margin-top:5px"/>
+          <input type="submit" name="Login" id="login_btn" value="Login" style="margin-top:5px"/>
+        </fieldset>
+      </form>
+    </div>
+    <hr/>
+    <div class="newest">
+      <marquee direction="up">
+      <h2>Newest Blogs</h2>
+      <p>Heck one</p>
+      <p>Heck two</p>
+      <p>Heck three</p>
+      <p>Heck four</p>
+    </marquee>
+    </div>
+    <hr/>
+    <hr/>
+  </div-->
+  <div id="content" class="tabcontent">
+    <p>
+      I am a good boy. I am a good boy.
+       I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+       I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+       I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy. I am a good boy. I am a good boy.
+         I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+         I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+         I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy. I am a good boy. I am a good boy.
+           I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+           I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+           I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+    </p>
+    <p> I am a good boy. I am a good boy.
+      I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+      I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+      I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+      I am a good boy. I am a good boy.
+       I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+       I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+       I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+    </p>
+    <p>
+      I am a good boy. I am a good boy.
+       I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+       I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+       I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy. I am a good boy. I am a good boy.
+         I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+         I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+         I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy. I am a good boy. I am a good boy.
+           I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+           I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+           I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+    </p>
+    <p> I am a good boy. I am a good boy.
+      I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+      I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+      I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+      I am a good boy. I am a good boy.
+       I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+       I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+       I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+    </p>
+    <p>
+      I am a good boy. I am a good boy.
+       I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+       I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+       I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy. I am a good boy. I am a good boy.
+         I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+         I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+         I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy. I am a good boy. I am a good boy.
+           I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+           I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+           I am a good boy.I am a good boy.I am a good boy.I am a good boy.I am a good boy.
+    </p>
+  </div>
+<!--/div>
+<div class="row5">
+  <div id="quicklinks">
+    <div>
+      <ul>
+        <li>Hello</li>
+        <li>Hello</li>
+        <li>Hello</li>
+        <li>Hello</li>
+      </ul>
+  </div>
+</div>
+</div>
+<div class="row6">
+</div-->
+<script type="text/javascript" src="server.js"></script>
+</body>
 </html>
