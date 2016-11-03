@@ -27,16 +27,13 @@ function showDivs(n) {
 // Get the element with id="defaultOpen" and click on it
 
 
-function openCity(evt, cityName) {
+function openCity(cityName) {
     var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+    var xhttp = new XMLHttpRequest("/"+cityName);
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("tabdetails").innerHTML =this.responseText;
+        }
     }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
 }
+
