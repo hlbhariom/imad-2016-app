@@ -113,7 +113,7 @@ app.get('/article-two', function (req, res) {
 });
 
 app.get('/content',function (req, res) {
-    var content=`<div  class="contentwrapper tabcontent" id="newArticle">
+var content=`<div  class="contentwrapper tabcontent" id="newArticle">
   <form action="##" method="post">
   <fieldset>
     <input type="text" name="category" placeholder="category"></input>
