@@ -27,7 +27,7 @@ function showDivs(n) {
 // Get the element with id="defaultOpen" and click on it
 
 
-function openCity(evt,cityName) {
+function openCity(cityName) {
     var i, tabcontent, tablinks;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
