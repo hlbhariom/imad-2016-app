@@ -131,10 +131,10 @@ app.get('/content',function (req, res) {
     res.send(content);
 });
 
-app.get('/:articleName', function (req, res) {  //':' symbol lets the articleName be a variable.
+/*app.get('/:articleName', function (req, res) {  //':' symbol lets the articleName be a variable.
     var articleName=req.params.articleName;   //articleName captured from requested url.
   res.send(createTemplate(articles[articleName])); //Sending HTML Response
-});
+});*/
 
 //Javascript Response
 app.get('/ui/main.js',function(req,res){
