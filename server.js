@@ -108,11 +108,11 @@ app.get('/article-one', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
 });
 
-app.get('/article-two', function (req, res) {
+app.get('/content', function (req, res) {
   res.send('Article Two Will Be Served Here Soon...');  //Text Response
 });
 
-app.get('/content',function (req, res) {
+app.get('/newArticle',function (req, res) {
 var content=`<div  class="contentwrapper tabcontent" id="newArticle">
   <form action="##" method="post">
   <fieldset>
