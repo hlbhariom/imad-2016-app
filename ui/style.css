@@ -20,10 +20,8 @@ ul.navbar{
   list-style-type: none;
   padding: 5px;
   height: 45px;
-  /* width: 98%; */
   background: #232f3e;
-  /* margin-left: auto; */
-  /* margin-right: auto; */
+
 }
 
 ul.navbar li{
@@ -107,6 +105,33 @@ ul.navbar li a{
   text-decoration: none;
   text-shadow: inherit;
   overflow:hidden;
+}
+
+ul.navbar li.icon {display: none;}
+
+@media screen and (max-width:680px) {
+  ul.navbar li:not(:first-child) {display: none;}
+  ul.navbar li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:680px) {
+  ul.navbar.responsive {position: relative;}
+  ul.navbar.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.navbar.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.navbar.responsive li a {
+    display: block;
+    text-align: left;
+  }
 }
 /*Animation*/
 @keyframes bloganimation{
