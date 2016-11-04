@@ -279,6 +279,5 @@ ul.tab li a:focus, .active {
     color: beige;
     border-bottom-left-radius: 32px;
     border-bottom-right-radius: 32px;
-    background:linear-radient(grey,green);
 }
 
