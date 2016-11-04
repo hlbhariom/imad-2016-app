@@ -107,8 +107,15 @@ ul.navbar li a{
   overflow:hidden;
 }
 
+@media screen and (min-width:680px) {
+    button.dropdown{
+        display:none;
+    }
+    
+}
 
 @media screen and (max-width:680px) {
+
   .dropbtn {
     background-color: #4CAF50;
     color: white;
