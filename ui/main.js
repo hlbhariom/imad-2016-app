@@ -1,4 +1,4 @@
-function openCity(cityName) {
+function openTab(tabId) {
     var i, tabcontent, tablinks;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -6,7 +6,7 @@ function openCity(cityName) {
             document.getElementById("tabdetails").innerHTML =this.responseText;
         }
     };
-    xhttp.open("GET", "/"+cityName, true);
+    xhttp.open("GET", "/"+tabId, true);
     xhttp.send();
 }
 
