@@ -118,8 +118,11 @@ app.get('/article-one', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
 });
 
-app.get('/content', function (req, res) {
+app.get('/message', function (req, res) {
   res.send('Article Two Will Be Served Here Soon...');  //Text Response
+});
+app.get('/content', function (req, res) {
+  res.send(articleThree);  //Text Response
 });
 
 app.get('/newArticle',function (req, res) {
