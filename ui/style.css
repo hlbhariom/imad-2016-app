@@ -107,19 +107,10 @@ ul.navbar li a{
   overflow:hidden;
 }
 
-ul.navbar li.icon {display: none;}
 
-@media screen and (max-width:680px) {
-  ul.navbar li:not(:first-child) {display: none;}
-  ul.navbar li.icon {
-    float: right;
-    display: inline-block;
-  }
-}
-
-@media screen and (max-width:680px) {
-  ul.navbar.responsive {position: relative;}
-  ul.navbar.responsive li.icon {
+/*@media screen and (max-width:680px) {
+  ul.resp-navbar {position: relative;}
+  ul.resp-navbar li {
     position: absolute;
     right: 0;
     top: 0;
@@ -132,15 +123,15 @@ ul.navbar li.icon {display: none;}
     display: block;
     text-align: left;
   }
-}
+}*/
 /*Animation*/
 @keyframes bloganimation{
   0%{margin-left:90px;color:black;}
   25%{margin-left: 190px;color:pink;}
-  50%{margin-right:490px;color:red;font-size: 10px}
-  60%{margin-right:690px;color:cyan;}
-  75%{margin-right:490px;color:violet;}
-  85%{margin-right:0px;color:orange;}
+  50%{margin-left:290px;color:red;font-size: 10px}
+  60%{margin-left:250px;color:cyan;}
+  75%{margin-right:190px;color:violet;}
+  85%{margin-right:90px;color:orange;}
   100%{margin-left:90px;color:black;}
 }
 
