@@ -8,6 +8,7 @@ html{
   overflow-x:auto;
   overflow-y: scroll;
   background: linear-gradient(white,ghostwhite,pink,yellow);
+  bottom:20px;
 }
 
 body{
@@ -206,7 +207,7 @@ ul.tab li a:focus, .active {
 /* Style the tab content */
 .tabcontent {
     display: block;
-    margin: 0 5 13 10;
+    margin: 0 5px 13px 10px;
     padding: 20px;
     border: 1px solid black;
     border-top: none;
