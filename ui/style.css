@@ -263,7 +263,7 @@ ul.navbar li a{
   .text {font-size: 11px}
 }
 
-img.slideimg {
+.slideimg {
   width: 100%;
   max-height: 460px;
 }
@@ -316,13 +316,8 @@ ul.tab li a:focus, .active {
     display: none;
     margin: 0 5px 13px 10px;
     padding: 20px;
-    /* border: 1px solid black; */
-    /* border-top: none; */
-    /* background: linear-gradient(yellowgreen,white,yellowgreen); */
     color: darkblue;
     font-family: cursive;
-    /* border-bottom-left-radius: 32px; */
-    /* border-bottom-right-radius: 32px; */
 }
 
 
