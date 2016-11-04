@@ -8,6 +8,7 @@ html{
   overflow-x:auto;
   overflow-y: scroll;
   background: linear-gradient(white,ghostwhite,pink,yellow);
+  min-height:150%;
 }
 
 body{
