@@ -205,7 +205,7 @@ ul.tab li a:focus, .active {
 
 /* Style the tab content */
 .tabcontent {
-    display: none;
+    display: block;
     margin: 0 5 13 10;
     padding: 20px;
     border: 1px solid black;
@@ -344,9 +344,5 @@ img.slideimg {
     display: none;
 }
 #tabdetails{
-    min-height:40%;
-    width:75%;
-    float:none;
     text-align:center;
-}
 }
