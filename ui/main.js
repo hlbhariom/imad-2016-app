@@ -38,7 +38,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $("ul.tab li a").click(function(){
-        $("#tabdetails").style.display="block";
+        $("#tabdetails").display="block";
     });
 });
 
