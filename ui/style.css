@@ -343,3 +343,10 @@ img.slideimg {
     padding: 50px;
     display: none;
 }
+#tabdetails{
+    min-height:40%;
+    width:75%;
+    float:none;
+    text-align:center;
+}
+}
