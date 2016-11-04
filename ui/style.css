@@ -327,7 +327,7 @@ ul.tab li a:focus, .active {
   .text {font-size: 11px}
 }
 
-.slideimg{
+img.slideimg {
   width: 100%;
   height: 70%;
 }
