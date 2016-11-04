@@ -19,10 +19,12 @@ body{
 
 ul.navbar{
   list-style-type: none;
-  padding-top: 7px;
-  height: 30px;
-  width: 98%;
-  margin: 20px auto;
+  padding: 5px;
+  height: 45px;
+  /* width: 98%; */
+  background: #232f3e;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
 }
 
 ul.navbar li{
@@ -66,12 +68,12 @@ marquee h2{
   text-decoration: underline;
 }
 #blogname{
-  height: 50px;
+  height: 100%;
   padding: 2px;
   font-family: cursive;
-  text-shadow: 2px 2px 4px black;
-  font-size: smaller;
-  color: black;
+  text-shadow: 2px 2px 4px grey;
+  /* font-size: smaller; */
+  /* color: white; */
   animation-name: bloganimation;
   animation-iteration-count: infinite;
   animation-duration: 4s;
@@ -82,7 +84,9 @@ marquee h2{
   width:100%;
   text-align: center;
   font-size: 48px;
-  height: 10%;
+  line-height: 90px;
+  padding: 5px;
+  height: 95px;
   background: #232f3e;
 }
 
