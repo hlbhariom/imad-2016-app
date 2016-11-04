@@ -104,6 +104,16 @@ app.get('/ui/logo.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'logo.png'));   //png Response
 });
 
+app.get('/ui/i1.jpg', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'i1.jpg'));   //png Response
+});
+app.get('/ui/i2.jpg', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'i2.jpg'));   //jpg Response
+});
+app.get('/ui/i3.jpg', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'i3.jpg'));   //jpg Response
+});
+
 app.get('/article-one', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
 });
