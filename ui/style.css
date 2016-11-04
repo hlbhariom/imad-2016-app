@@ -10,9 +10,6 @@ html{
 body{
   margin:0px;
   padding:0px;
-  background: linear-gradient(white,bisque,orange,violet,green,red,firebrick);
-  background-repeat: no-repeat;
-  /* height: inherit; */
   min-width: 820px;
 }
 
