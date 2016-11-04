@@ -332,7 +332,7 @@ ul.tab li a:focus, .active {
 
 /* Style the tab content */
 #tabdetails {
-    display: block;
+    display: none;
     margin: 0 5px 13px 10px;
     padding: 20px;
     border: 1px solid black;
