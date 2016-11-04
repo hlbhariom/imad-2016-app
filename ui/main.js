@@ -32,14 +32,15 @@ function showSlides() {
 }
 
 function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "navbar") {
-        x.className += " responsive";
+    var x = document.getElementByClassName("navbar");
+    if (x[0].className === "navbar") {
+        x[0].className = "dropdown-content";
+        x[0].Id="myDropdown";
     } else {
-        x.className = "navbar";
+        x[0].className = "navbar";
+        x[0].id="";
     }
 }
-
 $(document).ready(function(){
     $("#flip").click(function(){
         $("#panel").slideToggle("slow");
