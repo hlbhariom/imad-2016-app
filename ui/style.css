@@ -1,4 +1,6 @@
-body{
+body {
+ background-image: url("ui/dribbblebackground-01_1x.jpg");
+   
 font-family:san-serif;
 background-color: lightgrey;
 margin-top:60px;
