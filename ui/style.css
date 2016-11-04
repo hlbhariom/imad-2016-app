@@ -8,7 +8,6 @@ html{
   overflow-x:auto;
   overflow-y: scroll;
   background: linear-gradient(white,ghostwhite,pink,yellow);
-  bottom:20px;
 }
 
 body{
