@@ -43,7 +43,7 @@ var articles={
 `}
 };
 //Single 'data' object 'articleThree'
-var articleThree= {`
+var articleThree= `
             
                 This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
              
@@ -67,7 +67,7 @@ var articleThree= {`
                     This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
              </p>
 
-`};
+`;
 
 //Function that takes data object as arguement and returns htmlTemplate.
 function createTemplate(data) {
