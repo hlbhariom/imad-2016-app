@@ -4,6 +4,7 @@ function openTab(tabId) {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("tabdetails").innerHTML =this.responseText;
+            document.getElementById("tabdetails").style.display="block";
         }
     };
     xhttp.open("GET", "/"+tabId, true);
@@ -35,10 +36,3 @@ $(document).ready(function(){
         $("#panel").slideToggle("slow");
     });
 });
-
-$(document).ready(function(){
-    $("ul.tab li a").click(function(){
-        $("#tabdetails").display="block";
-    });
-});
-
