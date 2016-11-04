@@ -80,10 +80,10 @@ marquee h2{
 
 #banner{
   width:100%;
-  text-align: justify;
+  text-align: center;
   font-size: 48px;
   height: 10%;
-  margin-top:10px;
+  background: #232f3e;
 }
 
 #login{
@@ -347,5 +347,5 @@ ul.tab li a:focus, .active {
 
 
 .tabcontents{
-    
+
 }
