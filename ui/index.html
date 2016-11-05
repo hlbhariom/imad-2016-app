@@ -2,47 +2,40 @@
 
 <html>
 <head>
-
-<!-- your webpage info goes here -->
-
-    <title>My First Website</title>
-	
-	<meta name="author" content="your name" />
-	<meta name="description" content="" />
-
-<!-- you should always add your stylesheet (css) in the head tag so that it starts loading before the page html is being displayed -->	
-	<link rel="stylesheet" href="style.css" type="text/css" />
-	
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
 
-<!-- webpage content goes here in the body -->
+<div class="testbox">
+  <h1>Registration</h1>
 
-	<div id="page">
-		<div id="logo">
-			<h1><a href="/" id="logoLink">My First Website</a></h1>
-		</div>
-		<div id="nav">
-			<ul>
-				<li><a href="#/home.html">Home</a></li>
-				<li><a href="#/about.html">About</a></li>
-				<li><a href="#/contact.html">Contact</a></li>
-			</ul>	
-		</div>
-		<div id="content">
-			<h2>Home</h2>
-			<p>
-				This is my first webpage! I was able to code all the HTML and CSS in order to make it. Watch out world of web design here I come!
-			</p>
-			<p> 
-				I can use my skills here to create websites for my business, my friends and family, my C.V, blog or articles. As well as any games or more experiment stuff (which is what the web is really all about). 
-			</p>
-		</div>
-		<div id="footer">
-			<p>
-				Webpage made by <a href="/" target="_blank">[your name]</a>
-			</p>
-		</div>
-	</div>
+  <form action="/">
+      <hr>
+    <div class="accounttype">
+      <input type="radio" value="None" id="radioOne" name="account" checked/>
+      <label for="radioOne" class="radio" chec>Personal</label>
+      <input type="radio" value="None" id="radioTwo" name="account" />
+      <label for="radioTwo" class="radio">Company</label>
+    </div>
+  <hr>
+  <label id="icon" for="name"><i class="icon-envelope "></i></label>
+  <input type="text" name="name" id="name" placeholder="Email" required/>
+  <label id="icon" for="name"><i class="icon-user"></i></label>
+  <input type="text" name="name" id="name" placeholder="Name" required/>
+  <label id="icon" for="name"><i class="icon-shield"></i></label>
+  <input type="password" name="name" id="name" placeholder="Password" required/>
+  <div class="gender">
+    <input type="radio" value="None" id="male" name="gender" checked/>
+    <label for="male" class="radio" chec>Male</label>
+    <input type="radio" value="None" id="female" name="gender" />
+    <label for="female" class="radio">Female</label>
+   </div> 
+   <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
+   <a href="#" class="button">Register</a>
+  </form>
+</div>
 </body>
 </html>
+
+
