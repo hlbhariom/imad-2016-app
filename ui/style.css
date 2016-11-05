@@ -18,7 +18,9 @@ body{
 .fl-right{
   float: right;
 }
-
+.fl-left{
+    float:left;
+}
 marquee{
   text-align: center;
 }
