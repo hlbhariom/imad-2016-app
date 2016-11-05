@@ -13,7 +13,7 @@ html{
 body{
   font-family: Verdana,sans-serif;
   background-repeat: no-repeat;
-  width:920px;
+  min-width:920px;
 }
 .fl-right{
   float: right;
@@ -106,7 +106,7 @@ ul.navbar li a{
   text-shadow: inherit;
   overflow:hidden;
 }
-@media screen and (max-width:500px) {
+@media screen and (max-width:919px) {
 ul.navbar li{
     width: auto;
     border-radius:0;
