@@ -31,16 +31,6 @@ function showSlides() {
     setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
 
-function myFunction() {
-    var x = document.getElementById("mynavbar");
-    if (x.className === "navbar") {
-        x.className = "dropdown-content";
-        x.id="myDropdown";
-    } else {
-        x.className = "navbar";
-        x.id="mynavbar";
-    }
-}
 $(document).ready(function(){
     $("#flip").click(function(){
         $("#panel").slideToggle("slow");
