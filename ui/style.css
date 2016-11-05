@@ -44,6 +44,7 @@ marquee h2{
   padding: 5px;
   height: 95px;
   background: #232f3e;
+  cursor:pointer;
 }
 
 #login{
