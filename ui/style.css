@@ -230,7 +230,7 @@ li a.hvr-pulse-grow:hover{
 
 /* Slideshow container */
 .slideshow-container {
-  width: 100%;
+  width: auto;
   position: relative;
   margin: auto;
 }
