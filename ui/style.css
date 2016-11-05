@@ -367,3 +367,28 @@ div.overlay div.col1{
     margin:0;
     background:radial-gradient(black,transparent 95%);
 }
+
+div.overlay div.col2{
+    height:100%;
+    width:auto;
+    border:1px solid black;
+    padding:0;
+    margin:0;
+    background:radial-gradient(black,transparent 95%);
+}
+div.overlay div.col3{
+    height:100%;
+    width:auto;
+    border:1px solid black;
+    padding:0;
+    margin:0;
+    background:radial-gradient(black,transparent 95%);
+}
+div.overlay div.col4{
+    height:100%;
+    width:auto;
+    border:1px solid black;
+    padding:0;
+    margin:0;
+    background:radial-gradient(black,transparent 95%);
+}
