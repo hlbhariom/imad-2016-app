@@ -13,7 +13,7 @@ html{
 body{
   font-family: Verdana,sans-serif;
   background-repeat: no-repeat;
-  min-width: 1000px;
+  width:auto;
 }
 .fl-right{
   float: right;
