@@ -108,23 +108,23 @@ ul.navbar li a{
 }
 @media screen and (max-width:500px) {
 ul.navbar li{
-    width:10%;
-    padding: 0;
+    width: auto;
     border-radius:0;
     border:none;
     margin:0;
     display:inline-block;
     text-align:justify;
+    float: left;
     background-color:inherit;
-
 }
 
 ul.navbar li a{
+  display: inline;
   font-size:smaller;
   color:beige;
-
 }
 ul.navbar{
+  float: left;
   width:100%;
   margin: 0;
 }
