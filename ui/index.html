@@ -8,7 +8,27 @@
 <link href="/ui/style.css" rel="stylesheet">
 </head>
 <body>
-    <script src="http://s.codepen.io/assets/libs/prefixfree.min.js"></script>
+    <script>
+        function infoClick(field)
+{ 
+  
+   $(".contact").removeClass("showClick");
+ $(".contact").addClass("hideClick");
+  $(".infoLabel").slideToggle();
+  $(".contactLabel").slideToggle();
+  $(".info").addClass("showClick");
+
+}
+function contactClick(field) 
+{
+  
+   $(".info").removeClass("showClick");
+   $(".info").addClass("hideClick");
+  $(".infoLabel").slideToggle();
+  $(".contactLabel").slideToggle();
+  $(".contact").addClass("showClick"); 
+}
+    </script>
 
 <section class="profile">
 	<!--	<input type="radio" id="contactBtn" name="otherBtn">
