@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var pool=require('pg').pool;
+var crypto=require('crypto');
 
 var config={
     user:'divya063',
@@ -29,10 +30,17 @@ app.get('/ui/style.css', function (req, res) {
 app.get('/ui/profile.css',function (req,res){
     res.sendFile(path.join(__dirname, 'ui', 'profile.css'));
 });
+function hash(input,salt){
+    var hashed=crypto.pbkdf2sync(input,salt,1000,512,'sha512');
+    return hashed;
+}
 
-app.get('/ui/madi.png', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
+app.get('hash/:input' function(req,res){
+    var hashedString=hash(req.params.input,salt);
+    res.send(hashedString);
 });
+
+
 
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
