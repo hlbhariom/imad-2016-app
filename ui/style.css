@@ -112,7 +112,7 @@ ul.navbar li a{
   overflow:hidden;
 }
 
-@media screen and (max-width:919px) {
+@media screen and (max-width: 919px) {
 ul.navbar li{
     width: auto;
     border-radius:0;
@@ -127,10 +127,14 @@ a i.fa:hover{
   color: crimson;
 
 }
-ul.navbar li a{
+a{
   display: inline;
   font-size:smaller;
-  color:beige;
+  /* color:beige; */
+}
+
+ul.navbar li a {
+    color: white;
 }
 ul.navbar{
   float: left;

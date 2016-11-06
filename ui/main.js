@@ -54,3 +54,15 @@ $('i#searchbtn').click(function(){
   $('#searchbox').hide();
   $('#li2').show();
 });
+
+function slshow(){
+  if(navigator.appCodeName=="Mozilla"){
+    if(window.outerWidth<920){
+      $(".slideshow-container").css("margin-top","45px");
+    } else{
+      $(".slideshow-container").css("margin-top","0");
+    }
+  }
+}
+$('document').on('ready',slshow());
+$(window).resize(function(){slshow();})
