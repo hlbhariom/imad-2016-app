@@ -41,7 +41,7 @@ app.get('hash/:input', function(req,res){
     var hashedString=hash(req.params.input, 'this-is-some-random-string');
     res.send(hashedString);
 });
-app.post('/create-user', function (req, res) {
+app.post('/signup/create-user', function (req, res) {
 // username, password
 // {"username": "tanmai", "password": "password"}
 // JSON
