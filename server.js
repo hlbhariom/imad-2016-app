@@ -61,7 +61,7 @@ pool.query('SELECT * FROM test' ,function(err,result){
     if (err) {
 res.status(500).send(err.toString());
 } else {
-res.send('User successfully created: ' + username);
+res.send(res.send(JSON.stringify(result.rows));
 }
 });
 });
