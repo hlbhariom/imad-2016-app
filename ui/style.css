@@ -29,12 +29,13 @@ marquee h2{
 }
 #blogname{
   height: 100%;
+  width: 250px;
   padding: 2px;
   font-family: cursive;
   text-shadow: 2px 2px 4px grey;
   animation-name: bloganimation;
   animation-iteration-count: infinite;
-  animation-duration: 4s;
+  animation-duration: 8s;
   animation-direction: alternate;
 }
 
@@ -110,6 +111,7 @@ ul.navbar li a{
   text-shadow: inherit;
   overflow:hidden;
 }
+
 @media screen and (max-width:919px) {
 ul.navbar li{
     width: auto;
@@ -121,7 +123,10 @@ ul.navbar li{
     float: left;
     background-color:inherit;
 }
+a i.fa:hover{
+  color: crimson;
 
+}
 ul.navbar li a{
   display: inline;
   font-size:smaller;
@@ -137,18 +142,16 @@ li a.hvr-pulse-grow:hover{
   text-decoration:underline;
   color:orange;
 }
-  
+
 }
 
 /*Animation*/
 @keyframes bloganimation{
-  0%{margin-left:90px;color:black;}
-  25%{margin-left: 190px;color:pink;}
-  50%{margin-left:290px;color:red;font-size: 10px}
-  60%{margin-left:250px;color:cyan;}
-  75%{margin-right:190px;color:violet;}
-  85%{margin-right:90px;color:orange;}
-  100%{margin-left:90px;color:black;}
+  0%{margin-left:10%;color:crimson;}
+  25%{margin-left: 60%;color:pink;}
+
+  75%{margin-right:60%;color:orange;}
+  100%{margin-right:50%;color:white;}
 }
 
 /* Pulse Grow */
@@ -377,7 +380,7 @@ ul.tab li a:focus, .active {
 .overlay a {
     padding: 8px;
     text-decoration: none;
-    font-size: 36px;
+    font-size: larger;
     color: #818181;
     display: block;
     transition: 0.3s;
@@ -394,7 +397,11 @@ ul.tab li a:focus, .active {
     position: absolute;
     top: 20px;
     right: 45px;
-    font-size: 60px;
+    font-size: larger;
+}
+a.closebtn:hover{
+  background: inherit;
+  border:none;
 }
 
 @media screen and (max-height: 450px) {
@@ -406,10 +413,69 @@ ul.tab li a:focus, .active {
     right: 35px;
   }
 }
-div.overlay div{
+div.overlay div.overlay-content{
     height:100%;
-    width: 25%;
+    width: auto;
     border-left: 1px solid black;
     padding:0;
     margin:0;
+    text-align: justify;
+    float: left;
+}
+
+div.overlay-content a:hover{
+  color: orange;
+  text-decoration:underline;
+}
+
+div.overlay-content a:active,div.overlay-content a:focus{
+  background: transparent;
+  color: crimson;
+  text-decoration:underline;
+  border:0;
+}
+
+@font-face{
+  font-family:'FontAwesome';
+  src:url('/fonturl1');
+  src:url('/fonturl2') format('embedded-opentype'),url('/fonturl3') format('woff2'),url('/fonturl4') format('woff'),url('/fonturl5') format('truetype'),url('/fonturl6') format('svg');
+  font-weight:normal;
+  font-style:normal;
+}
+.fa{
+  display:inline-block;
+  font:normal normal normal 14px/1 FontAwesome;
+  font-size:inherit;
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.fa-home:before{content:"\f015"}
+.fa-search:before{content:"\f002"}
+
+
+
+input[type=search]{
+    width: 75%;
+    line-height: 20px;
+    border-radius: 35px;
+    padding: 5px;
+
+}
+#searchbox{
+border: none;
+box-shadow: none;
+background: none;
+padding: 0;
+display: none;
+}
+
+li.fl-left#searchbox div div a{
+  color: white;
+  font-size: larger;
+  padding: 4px;
+}
+
+input[type="search"]:focus {
+    outline: none;
 }

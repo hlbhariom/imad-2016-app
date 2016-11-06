@@ -3,8 +3,6 @@
 <head>
 <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
   <link href="/ui/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <title>Welcome to Blogpedia..!</title>
 </head>
 
@@ -15,7 +13,15 @@
   </div>
 
     <ul class="navbar">
-      <li class="hvr-float-shadow fl-left"><a href="javascript:void(0);"><i class="fa fa-home"></i></a></li>
+      <li class="hvr-float-shadow fl-left"><a href="javascript:void(0);"><i class="fa hvr-pulse-grow fa-home"></i></a></li>
+      <li id="li2" class="hvr-float-shadow fl-left"><a href="javascript:void(0);"><i class="fa hvr-pulse-grow fa-search"></i></a></li>
+      <li class="fl-left" id="searchbox"><div style="text-align:center;display:inline-block;">
+          <div style="text-align: center;display: inline-flex;line-height: 10px;">
+            <input type="search" placeholder="Search" style="border-bottom: 2px solid blueviolet;">
+            <a href="javascript:void(0);" style="font-size:larger;"><i id="searchbtn" class="fa hvr-pulse-grow fa-search"></i></a>
+        </div>
+      </div>
+    </li>
       <li class="hvr-float-shadow  fl-right"><a class="hvr-pulse-grow" href="javascript:void(0);">LATEST</a></li>
       <li class="hvr-float-shadow  fl-right"><a class="hvr-pulse-grow" href="javascript:void(0);">INSPIRATION</a></li>
       <li class="hvr-float-shadow  fl-right"><a class="hvr-pulse-grow" href="javascript:void(0);">TECHNOLOGY</a></li>
@@ -31,7 +37,7 @@
     <img src="/ui/i1.jpg" class="slideimg">
     <div class="text">Morning Trip</div>
   </div>
-<!--
+
   <div class="mySlides fade">
     <img src="/ui/i2.jpg" class="slideimg">
     <div class="text">Hangout with friends</div>
@@ -42,7 +48,7 @@
     <img src="/ui/i3.jpg" class="slideimg">
     <div class="text">Birthday Party</div>
   </div>
--->
+
   </div>
   <br>
 
@@ -57,11 +63,11 @@
   <li><a href="javascript:void(0)" class="tablinks" onclick="openTab('message')">Message</a></li>
 </ul>
 <div id="tabdetails">
-    
+
 </div>
 
 <div id="myNav" class="overlay">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="javascript:void(0)" class="closebtn">&times;</a>;
   <div class="overlay-content">
     <a href="#">Login</a>
     <a href="#">Register</a>
@@ -70,7 +76,6 @@
     <a href="#">Contact Us</a>
   </div>
 </div>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="/ui/main.js"></script>
 </body>

@@ -174,6 +174,29 @@ var content=`<div  class="contentwrapper tabcontent" id="newArticle">
     res.send(content);
 });
 
+app.get('/fonturl1', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'fonturl1.eot'));
+});
+
+app.get('/fonturl2', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'fonturl2.eot'));
+});
+
+app.get('/fonturl3', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'fonturl3.woff2'));
+});
+
+app.get('/fonturl4', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'fonturl4.woff'));
+});
+
+app.get('/fonturl5', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'fonturl5.ttf'));
+});
+
+app.get('/fonturl6', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'fonturl6.svg'));
+});
 /*app.get('/:articleName', function (req, res) {  //':' symbol lets the articleName be a variable.
     var articleName=req.params.articleName;   //articleName captured from requested url.
   res.send(createTemplate(articles[articleName])); //Sending HTML Response
@@ -184,7 +207,7 @@ app.get('/ui/main.js',function(req,res){
     res.sendFile(path.join(__dirname,'ui','main.js'));
 });
 
-var port = 8080; // Use 8080 for local development because you might already have apache running on 80
-app.listen(8080, function () {
+var port = 80; // Use 8080 for local development because you might already have apache running on 80
+app.listen(80, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });

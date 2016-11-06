@@ -40,7 +40,17 @@ $(document).ready(function(){
 function openNav() {
     document.getElementById("myNav").style.height = "100%";
 }
+$('document').ready(function(){
+  $('.closebtn').click(function(){
+      $('.overlay').css('height','0%')
+  });
+});
 
-function closeNav() {
-    document.getElementById("myNav").style.height = "0%";
-}
+$('#li2').click(function(){
+  $('#li2').hide();
+  $('#searchbox').show();
+});
+$('i#searchbtn').click(function(){
+  $('#searchbox').hide();
+  $('#li2').show();
+});
