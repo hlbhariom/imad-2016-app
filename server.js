@@ -197,6 +197,8 @@ app.get('/fonturl5', function (req, res) {
 app.get('/fonturl6', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'fonturl6.svg'));
 });
+
+
 /*app.get('/:articleName', function (req, res) {  //':' symbol lets the articleName be a variable.
     var articleName=req.params.articleName;   //articleName captured from requested url.
   res.send(createTemplate(articles[articleName])); //Sending HTML Response

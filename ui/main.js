@@ -1,10 +1,10 @@
-function openTab(tabId) {
+function openTab(tabId,par) {
     var i, tabcontent, tablinks;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("tabdetails").innerHTML =this.responseText;
-            document.getElementById("tabdetails").style.display="block";
+            document.getElementById(par).innerHTML =this.responseText;
+            document.getElementById(par).style.display="block";
         }
     };
     xhttp.open("GET", "/"+tabId, true);
@@ -31,7 +31,7 @@ function showSlides() {
     setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
 
-$(document).ready(function(){
+$('document').ready(function(){
     $("#flip").click(function(){
         $("#panel").slideToggle("slow");
     });
@@ -44,6 +44,7 @@ $('document').ready(function(){
   $('.closebtn').click(function(){
       $('.overlay').css('height','0%')
   });
+  $('#defaultOpen').trigger('click');
 });
 
 $('#li2').click(function(){
@@ -56,13 +57,11 @@ $('i#searchbtn').click(function(){
 });
 
 function slshow(){
-  if(navigator.appCodeName=="Mozilla"){
-    if(window.outerWidth<920){
+    if(window.outerWidth<920 && !navigator.appVersion.includes("Chrome")){
       $(".slideshow-container").css("margin-top","45px");
     } else{
       $(".slideshow-container").css("margin-top","0");
     }
-  }
 }
 $('document').on('ready',slshow());
 $(window).resize(function(){slshow();})

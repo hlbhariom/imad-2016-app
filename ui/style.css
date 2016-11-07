@@ -14,6 +14,8 @@ body{
   font-family: Verdana,sans-serif;
   background-repeat: no-repeat;
   min-width:920px;
+  margin-bottom: 55px;
+  height: 100%;
 }
 .fl-right{
   float: right;
@@ -91,12 +93,12 @@ ul.navbar{
 }
 
 ul.navbar li{
-  border: 1px solid green;
+  /* border: 1px solid green; */
   border-bottom-width: medium;
   border-right-width: 2px;
-  border-bottom-color: blueviolet;
+  /* border-bottom-color: blueviolet; */
   border-radius: 10px;
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
   font-size: 20px;
   line-height: 30px;
   font-family: fantasy;
@@ -106,13 +108,13 @@ ul.navbar li{
 }
 
 ul.navbar li a{
-  color:inherit;
+  color: white;
   text-decoration: none;
   text-shadow: inherit;
   overflow:hidden;
 }
 
-@media screen and (max-width: 919px) {
+@media screen and (max-width: 940px) {
 ul.navbar li{
     width: auto;
     border-radius:0;
@@ -124,8 +126,8 @@ ul.navbar li{
     background-color:inherit;
 }
 a i.fa:hover{
-  color: crimson;
-
+  color: orange;
+  /* text-decoration: underline; */
 }
 a{
   display: inline;
@@ -177,6 +179,7 @@ li a.hvr-pulse-grow:hover{
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
+  /* color: burlywood; */
 }
 .hvr-pulse-grow:hover, .hvr-pulse-grow:focus, .hvr-pulse-grow:active {
   -webkit-animation-name: hvr-pulse-grow;
@@ -189,12 +192,14 @@ li a.hvr-pulse-grow:hover{
   animation-iteration-count: infinite;
   -webkit-animation-direction: alternate;
   animation-direction: alternate;
+  color: crimson;
 }
 
 
 
 /* Float Shadow */
 .hvr-float-shadow {
+  /* color: crimson; */
   display: inline-block;
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
@@ -332,9 +337,9 @@ ul.tab li {float: left;}
 /* Style the links inside the list items */
 ul.tab li a {
     display: inline-block;
-    color: black;
+    color: blanchedalmond;
     text-align: center;
-    padding: 14px 16px;
+    padding: 8px 16px;
     text-decoration: none;
     transition: 0.3s;
     font-size: 17px;
@@ -454,17 +459,27 @@ div.overlay-content a:active,div.overlay-content a:focus{
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
+
+i#footicon {
+    cursor: pointer;
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+i#foot-icon:hover {
+    /* color: white; */
+}
 .fa-home:before{content:"\f015"}
 .fa-search:before{content:"\f002"}
-
-
-
+.fa-angle-double-up:before {content: "\f102";}
+.fa-angle-double-down:before {content: "\f103";}
 input[type=search]{
     width: 75%;
     line-height: 20px;
     border-radius: 35px;
     padding: 5px;
-
+    border:2px solid #232f3e;
+    
 }
 #searchbox{
 border: none;
@@ -482,4 +497,16 @@ li.fl-left#searchbox div div a{
 
 input[type="search"]:focus {
     outline: none;
+}
+
+
+#container{
+  margin:0 auto;
+  padding: 50px 10px 50px 10px;
+}
+li a.hvr-pulse-grow:hover {
+    text-decoration: underline;
+}
+a i.fa:hover{
+  color:azure;
 }
