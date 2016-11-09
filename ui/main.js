@@ -17,7 +17,8 @@ button.onclick=function () {
             
     };
    //make the request
-   request.open('GET')
+   request.open('GET' 'http://divya063.imad.hasura-app.io/counter', true);
+   request.send(null);
    
     
     
