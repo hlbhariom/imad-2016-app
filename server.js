@@ -14,6 +14,9 @@ app.use(bodyParser.json());
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
+app.get('/co', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'co.html'));
+});
 app.get('/login',function(req, res){
     res.sendFile(path.join(__dirname, 'ui', 'login.html'));
 });
