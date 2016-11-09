@@ -34,7 +34,7 @@ var names=[];
 app.get('/submit-name/:nam',function (req,res){
     var nam=req.params.nam;
     names.push(nam);
-    req.send(JSON.stringify(nam));
+    res.send(JSON.stringify(nam));
     
 });
 var counter=0;
