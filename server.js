@@ -88,7 +88,7 @@ app.get('/co', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'co.html'));
 });
 app.get('/log',function(req, res){
-    res.sendFile(path.join(__dirname, 'ui', 'login.html'));
+    res.sendFile(path.join(__dirname, 'ui', 'log.html'));
 });
 app.get('/signup',function(req, res){
     res.sendFile(path.join(__dirname, 'ui', 'signup.html'));
