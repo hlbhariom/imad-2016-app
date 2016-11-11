@@ -58,13 +58,20 @@ $('document').ready(function(){
       $('#banner i.hvr-icon-down').fadeIn(5000);
   });
 
-$('document').ajaxStart(function(){
+/*$('document').ajaxStart(function(){
   $('.mask').show();
 });
 $('document').ajaxComplete(function(){
   $('.mask').hide();
+});*/
+
 });
-});
+
+$(document).bind("ajaxSend", function(){
+   $(".mask").show();
+ }).bind("ajaxComplete", function(){
+   $(".mask").hide();
+ });
 
 $(".overlay").css('height','0%');
 $(".modal").hide();
