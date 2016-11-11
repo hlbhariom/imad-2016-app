@@ -4,7 +4,7 @@ console.log('Loaded!');
 
 
 //submit name
-
+window.onload=function() {
 var submit=document.getElementById('login_btn');
 submit.onclick=function() {
      //create a response
@@ -26,6 +26,7 @@ submit.onclick=function() {
            
        }
    };
+};
    //Make a request
    var username=document.getElementById('username').value;
 var password=document.getElementById('password').value;
