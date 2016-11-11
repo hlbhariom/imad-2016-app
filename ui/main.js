@@ -40,30 +40,34 @@ $('document').ready(function(){
 
 $('document').ready(function(){
   $('.closebtn').click(function(){
-      $('.overlay').css('height','0%');
+      $('#register.overlay').css('height','0%');
   });
   $('#defaultOpen').trigger('click');
   $('#banner i.hvr-icon-down').click(function() {
-      $('#acc').css('height','100%');
+      $('.overlay').css('height','100%');
       $(this).hide();
         $('#banner i.hvr-icon-up').fadeIn();
         $('#banner i.hvr-icon-up').fadeIn("slow");
         $('#banner i.hvr-icon-up').fadeIn(5000);
   });
   $('#banner i.hvr-icon-up').click(function() {
-      $('#acc').css('height','0%');
+      $('.overlay').css('height','0%');
       $(this).hide();
       $('#banner i.hvr-icon-down').fadeIn();
       $('#banner i.hvr-icon-down').fadeIn("slow");
       $('#banner i.hvr-icon-down').fadeIn(5000);
   });
-  $('#loginlink').click(function(){
-    $('.login').show();
+
+
 });
-  /*$('div#acc').click(function(){
-    $(this).parent().css('height','0%');
-  });*/
+$('document').ajaxStart(function(){
+  $('.mask').addClass('ajax');
 });
+$('document').ajaxStart(function(){
+  $('.mask').removeClass('ajax');
+});
+$(".overlay").css('height','0%');
+$(".modal").hide();
 
 $('#li2').click(function(){
   $('#li2').hide();

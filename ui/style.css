@@ -1,4 +1,4 @@
-*{
+*,, *:before, *:after{
   box-sizing: border-box;
   position: relative;
   margin: 0;
@@ -9,14 +9,27 @@ html{
   overflow-x:auto;
   overflow-y: scroll;
   background: linear-gradient(white,ghostwhite,pink,yellow);
+  line-height: 1.15;
 }
 
 body{
-  font-family: Verdana,sans-serif;
+  font-family:'Titillium Web', Verdana,sans-serif;
   background-repeat: no-repeat;
   min-width:920px;
-  margin-bottom: 55px;
   height: 100%;
+}
+.mask{
+  display: none;
+}
+.mask.ajax{
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1000;
+  background-image: url("/ui/loader.gif");
+  background-repeat: repeat;
+  opacity: 0.6;
 }
 .fl-right{
   float: right;
@@ -34,7 +47,6 @@ marquee h2{
   height: 100%;
   width: 250px;
   padding: 2px;
-  cursor: none;
   font-family: cursive;
   text-shadow: 2px 2px 4px grey;
   animation-name: bloganimation;
@@ -51,20 +63,19 @@ marquee h2{
   padding: 5px;
   height: 95px;
   background: #232f3e;
-  cursor:none;
 }
 
-#login{
+#acc-tab{
   align-items: center;
   color: darkblue;
 }
-#login form fieldset input{
+#acc-tab form fieldset input{
   background-color: white;
 }
 legend{
   color: black;
 }
-#login input{
+#acc-tab input{
   width:100%;
 }
 
@@ -157,6 +168,14 @@ li a.hvr-pulse-grow:hover{
 
   75%{margin-right:60%;color:orange;}
   100%{margin-right:50%;color:white;}
+}
+@keyframes icon-anim{
+  0%{color:yellow;}
+  20%{color:pink;}
+  40%{color:green;}
+  60%{color:orange;}
+  80%{color:black;}
+  100%{color:yellow;}
 }
 
 /* Pulse Grow */
@@ -321,7 +340,7 @@ ul.tab {
     overflow: hidden;
 }
 
-#acc ul.tab {
+#acc-all ul.tab {
     margin-top: 2px;
     margin: auto;
     background: blueviolet;
@@ -348,7 +367,7 @@ ul.tab li a:hover {
 }
 
 /* Create an active/current tablink class */
-ul.tab li a:focus, .active {
+ul.tab li a:focus, ul.tab li.active {
     background-color: crimson;
     border-radius: 0;
     border-right: 1px solid white;
@@ -366,7 +385,6 @@ ul.tab li a:focus, .active {
 
 
 .overlay {
-    height: 0%;
     width: 100%;
     position: fixed;
     z-index: 1;
@@ -378,9 +396,6 @@ ul.tab li a:focus, .active {
     transition: 0.5s;
 }
 
-div#acc {
-    background-color: black;
-}
 
 .overlay-content {
     position: relative;
@@ -436,7 +451,10 @@ div.overlay-content a:active,div.overlay-content a:focus{
   text-decoration:underline;
   border:0;
 }
-
+div#register.overlay{
+  background: #c1bdba;
+  font-family: 'Titillium Web', sans-serif;
+}
 @font-face{
   font-family:'FontAwesome';
   src:url('/fonturl1');
@@ -616,8 +634,10 @@ a i.fa:hover{
 }
 #banner i.hvr-icon-down{top: 3%;}
 
-#banner i.hvr-icon-up{bottom: 3%;/right:;display: none;}
-
+#banner i.hvr-icon-up{bottom: 3%;display: none;}
+i{
+animation-name:icon-anim;animation-iteration-count: infinite;animation-duration: 10s;
+}
 input[type=search]{
     width: 75%;
     line-height: 20px;
@@ -630,7 +650,7 @@ input[type="search"]:focus {
     outline: none;
 }
 
-input[type=text], select {
+#container input[type=text], select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -658,27 +678,27 @@ div#register {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
+    top:33px;
 }
 
 
 div#acc-container {
-    margin: 0;
+    margin: 0 auto;
     width: 100%;
     display: inline-block;
     color: azure;
     text-align: -webkit-auto;
-    background: white;
+    background: transparent;
     overflow-y: auto;
 }
 
-div#acc-nav-div {
-    display: block;
-    margin-right: auto;
-    margin-top: 5%;
+ul#acc-nav-div {
+    display:none;
+    margin:0 auto;
     text-align: justify;
     min-width: 15%;
 }
-  .login {
+  .acc-tab {
     position: absolute;
     top: 0%;
     left:0%;
@@ -686,39 +706,38 @@ div#acc-nav-div {
     height: 98%;
     padding: 20px;
     background: #fff;
-    border-radius: 5px;
     overflow: hidden;
     display: none;
   }
-  .login:hover > .login-header, .login.focused > .login-header {
+  .acc-tab:hover > .acc-tab-header, .acc-tab.focused > .acc-tab-header {
     width: 2rem;
   }
-  .login:hover > .login-header > .text, .login.focused > .login-header > .text {
+  .acc-tab:hover > .acc-tab-header > .text, .acc-tab.focused > .acc-tab-header > .text {
     font-size: 1rem;
     transform: rotate(-90deg);
   }
-  .login.loading > .login-header {
+  .acc-tab.loading > .acc-tab-header {
     width: 100%;
     padding: 10%;
   }
-  .login.loading > .login-header > .text {
+  .acc-tab.loading > .acc-tab-header > .text {
     display: none;
   }
-  .login.loading > .login-header > .loader {
+  .acc-tab.loading > .acc-tab-header > .loader {
     display: block;
   }
 
-  .login-header {
+  .acc-tab-header {
   position: absolute;
   left: 0;
-  top: 0;
+  top: auto;
   z-index: 1;
   width: 100%;
   height: 100%;
   background: orange;
   transition: width 0.5s ease-in-out;
 }
-  .login-header > .text {
+  .acc-tab-header > .text {
     display: block;
     width: 100%;
     height: 100%;
@@ -734,7 +753,7 @@ div#acc-nav-div {
       width: 100%;
       text-align: center;
   }
-  .login-header > .loader {
+  .acc-tab-header > .loader {
     display: none;
     margin: auto;
     width: 10rem;
@@ -743,7 +762,7 @@ div#acc-nav-div {
     border-radius: 50%;
     animation: loading 2s linear infinite;
   }
-  .login-header > .loader:after {
+  .acc-tab-header > .loader:after {
     content: "";
     position: absolute;
     left: 4.5rem;
@@ -754,7 +773,7 @@ div#acc-nav-div {
     border-radius: 50%;
     border-right: 2px solid orange;
   }
-  .login-header > .loader:before {
+  .acc-tab-header > .loader:before {
     content: "";
     position: absolute;
     left: 4rem;
@@ -774,12 +793,12 @@ div#acc-nav-div {
       transform: rotate(360deg);
     }
   }
-  .login-form {
+  .acc-tab-form {
     margin: 0 0 0 2rem;
     padding: 20%;
   }
 
-  .login-input {
+  .acc-tab-input {
     display: block;
     width: 100%;
     font-size: 2rem;
@@ -788,15 +807,15 @@ div#acc-nav-div {
     border-color: #ccc;
     border-width: 0 0 2px 0;
   }
-  .login-input + .login-input {
+  .acc-tab-input + .acc-tab-input {
     margin: 10px 0 0;
   }
-  .login-input:focus {
+  .acc-tab-input:focus {
     outline: none;
     border-bottom-color: orange;
   }
 
-  .login-btn {
+  .acc-tab-btn {
     width: 5rem;
     height: 5rem;
     float: right;
@@ -808,7 +827,7 @@ div#acc-nav-div {
     border: 0.6rem solid transparent;
     transition: all 0.3s ease-in-out;
   }
-  .login-btn:after {
+  .acc-tab-btn:after {
     content: "";
     position: absolute;
     left: 1rem;
@@ -820,11 +839,11 @@ div#acc-nav-div {
     border-bottom: 1.2rem solid transparent;
     transition: border 0.3s ease-in-out 0s;
   }
-  .login-btn:hover, .login-btn:focus, .login-btn:active {
+  .acc-tab-btn:hover, .acc-tab-btn:focus, .acc-tab-btn:active {
     background: #fff;
     border-color: orange;
     outline: none;
   }
-  .login-btn:hover:after, .login-btn:focus:after, .login-btn:active:after {
+  .acc-tab-btn:hover:after, .acc-tab-btn:focus:after, .acc-tab-btn:active:after {
     border-left-color: orange;
   }

@@ -9,14 +9,18 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/loginform',function(req,res){
-var loginform=`<div class="login">
-        <header class="login-header"><span class="text">LOGIN</span><span class="loader"></span></header>
-	        <form class="login-form">
-		          <input type="text" placeholder="Username" class="login-input">
-			            <input type="password" placeholder="Password" class="login-input">
-				              <button type="submit" class="login-btn">login</button>
-					              </form>
-						            </div>`;
+var loginform=`
+	<div class="login">
+        	<header class="login-header">
+			<span class="text">LOGIN</span>
+			<span class="loader"></span>
+		</header>
+		<form class="login-form">
+			<input type="text" placeholder="Username" class="login-input">
+			<input type="password" placeholder="Password" class="login-input">
+			<button type="submit" class="login-btn">login</button>
+	        </form>
+	</div>`;
 
  res.send(loginform);
  });
@@ -228,8 +232,24 @@ app.get('/ui/prefixfree.min.js',function(req,res){
     res.sendFile(path.join(__dirname,'ui','prefixfree.min.js'));
 });
 
+
 app.get('/ui/login.js',function(req,res){
     res.sendFile(path.join(__dirname,'ui','login.js'));
+});
+app.get('/ui/loginfont.css',function(req,res){
+    res.sendFile(path.join(__dirname,'ui','loginfont.css'));
+});
+app.get('/ui/form.css',function(req,res){
+    res.sendFile(path.join(__dirname,'ui','form.css'));
+});
+app.get('/ui/form.js',function(req,res){
+    res.sendFile(path.join(__dirname,'ui','form.js'));
+});
+app.get('/ui/loginfont.css',function(req,res){
+    res.sendFile(path.join(__dirname,'ui','login.css'));
+});
+app.get('/ui/loader.gif', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'loader.gif'));
 });
 var port = 8080;// Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
