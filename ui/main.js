@@ -65,7 +65,7 @@ var register = document.getElementById('register_btn');
         request.open('POST', '/create-user', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({username: username, password: password}));  
-        register.value = 'Registering...';
+        
     
     };
     function loadLogin () {
