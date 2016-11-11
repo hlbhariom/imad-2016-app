@@ -6,11 +6,11 @@ function openTab(tabId,par) {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById(par).innerHTML =this.responseText;
             document.getElementById(par).style.display="block";
+            $('.mask').hide();
         }
     };
     xhttp.open("GET", "/"+tabId, true);
     xhttp.send();
-    $('.mask').hide();
 }
 
 var slideIndex = 0;
