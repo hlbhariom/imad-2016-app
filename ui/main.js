@@ -58,14 +58,14 @@ $('document').ready(function(){
       $('#banner i.hvr-icon-down').fadeIn(5000);
   });
 
-
-});
 $('document').ajaxStart(function(){
   $('.mask').show();
 });
 $('document').ajaxStart(function(){
   $('.mask').hide();
 });
+});
+
 $(".overlay").css('height','0%');
 $(".modal").hide();
 
