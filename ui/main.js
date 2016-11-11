@@ -40,7 +40,7 @@ console.log(password);
     
 };
 var register = document.getElementById('register_btn');
-    register.onclick =function () {
+    register.onclick =function() {
         // Create a request object
         var request = new XMLHttpRequest();
         
