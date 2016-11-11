@@ -4,6 +4,7 @@ console.log('Loaded!');
 
 
 //submit name
+window.onload = function () {
 
 var submit=document.getElementById('login_btn');
 submit.onclick=function() {
@@ -36,9 +37,10 @@ console.log(password);
    request.setRequestHeader('Content-Type','application/json');
    request.send(JSON.stringify({username: username,password: password}));
     
-   
+};
     
 };
+window.onload = function () {
 var register = document.getElementById('register_btn');
     register.onclick =function() {
         // Create a request object
@@ -69,6 +71,7 @@ var register = document.getElementById('register_btn');
         
     
     };
+};
     
    
                
