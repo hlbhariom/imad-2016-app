@@ -60,11 +60,11 @@ var register = document.getElementById('register_btn');
         // Make the request
         var username = document.getElementById('name').value;
         var password = document.getElementById('pass').value;
-        console.log(username);
-        console.log(password);
+        console.log(name);
+        console.log(pass);
         request.open('POST', 'http://divya063.imad.hasura-app.io/create-user', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({username: username, password: password}));  
+        request.send(JSON.stringify({username: name, password: pass}));  
         
     
     };
