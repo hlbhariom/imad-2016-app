@@ -1,6 +1,7 @@
 function openTab(tabId,par) {
     var i, tabcontent, tablinks;
     var xhttp = new XMLHttpRequest();
+    $('.mask').show();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById(par).innerHTML =this.responseText;
@@ -9,6 +10,7 @@ function openTab(tabId,par) {
     };
     xhttp.open("GET", "/"+tabId, true);
     xhttp.send();
+    $('.mask').hide();
 }
 
 var slideIndex = 0;
@@ -57,7 +59,7 @@ $('document').ready(function(){
       $('#banner i.hvr-icon-down').fadeIn("slow");
       $('#banner i.hvr-icon-down').fadeIn(5000);
   });
-$.ajaxSetup({beforeSend:$('.mask').show(), complete:$('.mask').hide()});
+/*$.ajaxSetup({beforeSend:$('.mask').show(), complete:$('.mask').hide()});
   $.ajax();
 /*$('document').ajaxStart(function(){
   $('.mask').show();
