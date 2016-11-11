@@ -61,7 +61,7 @@ $('document').ready(function(){
 $('document').ajaxStart(function(){
   $('.mask').show();
 });
-$('document').ajaxStart(function(){
+$('document').ajaxComplete(function(){
   $('.mask').hide();
 });
 });
