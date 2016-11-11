@@ -57,18 +57,19 @@ $('document').ready(function(){
       $('#banner i.hvr-icon-down').fadeIn("slow");
       $('#banner i.hvr-icon-down').fadeIn(5000);
   });
-
+$.ajaxSetup({beforeSend:$('.mask').show(), complete:$('.mask').hide()});
+  $.ajax();
 /*$('document').ajaxStart(function(){
   $('.mask').show();
 });
 $('document').ajaxComplete(function(){
   $('.mask').hide();
-});*/
+});
 $(document).bind("ajaxSend", function(){
    $(".mask").show();
  }).bind("ajaxComplete", function(){
    $(".mask").hide();
- });
+ });*/
 });
 
 
