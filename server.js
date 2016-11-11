@@ -87,7 +87,7 @@ app.get('/test-db', function (req, res) {
 app.get('/co', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'co.html'));
 });
-app.get('/login',function(req, res){
+app.get('/log',function(req, res){
     res.sendFile(path.join(__dirname, 'ui', 'login.html'));
 });
 app.get('/signup',function(req, res){
