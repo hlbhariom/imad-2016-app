@@ -61,10 +61,10 @@ $('document').ready(function(){
 
 });
 $('document').ajaxStart(function(){
-  $('.mask').addClass('ajax');
+  $('.mask').show();
 });
 $('document').ajaxStart(function(){
-  $('.mask').removeClass('ajax');
+  $('.mask').hide();
 });
 $(".overlay").css('height','0%');
 $(".modal").hide();
