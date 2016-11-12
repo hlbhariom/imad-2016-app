@@ -76,6 +76,12 @@ var commentInput=document.getElementById('comment');
 var comment=commentInput.value;
 var submit=document.getElementById('comment_btn');
 submit.onclick=function() {
+    var names=['name1','name2','name3'];
+    var list='';
+    for(var i=0;i<names.length;i++){
+        list+
+    }
+}
     
    
                
