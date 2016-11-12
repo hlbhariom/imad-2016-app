@@ -40,7 +40,7 @@ console.log(password);
 };
     
 };
-window.onload = function () {
+
 var register = document.getElementById('register_btn');
     register.onclick =function() {
         // Create a request object
@@ -57,8 +57,8 @@ var register = document.getElementById('register_btn');
                   alert('Could not register the user');
                   register.value = 'Register';
               }
-          }
-        };
+          
+        }
         
         // Make the request
         var username = document.getElementById('username').value;
