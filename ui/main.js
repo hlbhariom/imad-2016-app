@@ -72,6 +72,10 @@ var register = document.getElementById('register_btn');
     
     };
 };
+var commentInput=document.getElementById('comment');
+var comment=commentInput.value;
+var submit=document.getElementById('comment_btn');
+submit.onclick=function() {
     
    
                
