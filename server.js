@@ -128,9 +128,9 @@ app.get('/ui/main.js',function (req,res){
     res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 var names=[];
-app.get('/submit-name',function (req,res){
-    var nam=req.query.nam;
-    names.push(nam);
+app.get('/submit-comment',function (req,res){
+    var nam=req.query.comment;
+    names.push(comment);
     res.send(JSON.stringify(names));
     
 });
