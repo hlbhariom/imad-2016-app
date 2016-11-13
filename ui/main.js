@@ -63,8 +63,8 @@ console.log(password);
         }
         };
         // Make the request
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
+        var username = document.getElementById('user').value;
+        var password = document.getElementById('pass').value;
         console.log(username);
         console.log(password);
         request.open('POST', 'http://divya063.imad.hasura-app.io/create-user', true);
