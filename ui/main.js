@@ -36,7 +36,7 @@ console.log(password);
    request.setRequestHeader('Content-Type','application/json');
    request.send(JSON.stringify({username: username,password: password}));
 };
-};
+
    //signup
    
  
@@ -71,6 +71,7 @@ console.log(password);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({username:username, password: password}));  
         }; 
+};
 
   
     
