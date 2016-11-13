@@ -41,8 +41,8 @@ console.log(password);
     
 };
 
-var register = document.getElementById('register_btn');
-    register.onclick =function() {
+document.getElementById('register_btn').onclick =function() {
+    
         // Create a request object
         var request = new XMLHttpRequest();
         
