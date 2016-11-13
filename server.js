@@ -251,6 +251,27 @@ app.get('/ui/loginfont.css',function(req,res){
 app.get('/ui/loader.gif', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'loader.gif'));
 });
+app.get('/canvas.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'canvas.js'));
+});
+app.get('/EasePack.min.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'EasePack.min.js'));
+});
+app.get('/TweenLite.min.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'TweenLite.min.js'));
+});
+app.get('/profile.jpg',function(req,res){
+    res.sendFile(path.join(__dirname,'ui','profile.jpg'));
+});
+
+app.get('/tinymce.min.js',function(req,res){
+    res.sendFile(path.join(__dirname,'node_modules','tinymce','tinymce.min.js'));
+});
+app.get('/init-tinymce.js',function(req,res){
+    res.sendFile(path.join(__dirname,'node_modules','tinymce','init-tinymce.js'));
+});
+
+
 var port = 8080;// Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
   console.log(`IMAD course app listening on port ${port}!`);

@@ -30,15 +30,19 @@ $(target).fadeIn(600);
 });
 
 $('a[link_id]').click(function(){
-  $('.modal').show();
+  $('.modal').hide();
+  $('#'+$(this).attr('modal_id')+'.modal').show();
   $('a[href="#'+$(this).attr('link_id')+'"]').trigger('click');
 });
 
-var modal = document.getElementById('register');
-
+var modal_reg = document.getElementById('register');
+var modal_blog = $('#blog>div.form');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (event.target == modal_reg) {
+        modal_reg.style.display = "none";
+    }
+    else if (event.target== modal_blog)  {
+        modal_blog.style.display = "none";
     }
 }

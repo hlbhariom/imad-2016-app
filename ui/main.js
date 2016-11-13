@@ -1,6 +1,7 @@
 function openTab(tabId,par) {
     var i, tabcontent, tablinks;
     var xhttp = new XMLHttpRequest();
+    $('.mask').show();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById(par).innerHTML =this.responseText;
@@ -9,6 +10,7 @@ function openTab(tabId,par) {
     };
     xhttp.open("GET", "/"+tabId, true);
     xhttp.send();
+    $('.mask').hide();
 }
 
 var slideIndex = 0;
@@ -40,7 +42,7 @@ $('document').ready(function(){
 
 $('document').ready(function(){
   $('.closebtn').click(function(){
-      $('#register.overlay').css('height','0%');
+      $('#'+$(this).attr('modal_id')).hide();
   });
   $('#defaultOpen').trigger('click');
   $('#banner i.hvr-icon-down').click(function() {
@@ -53,19 +55,14 @@ $('document').ready(function(){
   $('#banner i.hvr-icon-up').click(function() {
       $('.overlay').css('height','0%');
       $(this).hide();
+      $('.modal').hide();
       $('#banner i.hvr-icon-down').fadeIn();
       $('#banner i.hvr-icon-down').fadeIn("slow");
       $('#banner i.hvr-icon-down').fadeIn(5000);
   });
 
+});
 
-});
-$('document').ajaxStart(function(){
-  $('.mask').show();
-});
-$('document').ajaxStart(function(){
-  $('.mask').hide();
-});
 $(".overlay").css('height','0%');
 $(".modal").hide();
 
