@@ -35,6 +35,7 @@ console.log(password);
    request.open('POST','http://divya063.imad.hasura-app.io/login',true);
    request.setRequestHeader('Content-Type','application/json');
    request.send(JSON.stringify({username: username,password: password}));
+};
    //signup
    window.onload = function () {
     
@@ -59,7 +60,7 @@ console.log(password);
               }
           
         }
-        
+        };
         // Make the request
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
@@ -69,9 +70,9 @@ console.log(password);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({username:username, password: password}));  
         }; 
- };
+   };
     
-};
+
 
    
                
@@ -79,4 +80,4 @@ console.log(password);
   
 
     
-};
+
