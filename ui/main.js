@@ -37,9 +37,10 @@ console.log(password);
    request.send(JSON.stringify({username: username,password: password}));
    //signup
    window.onload = function () {
-    document.getElementById('auth').onclick=change;
-};
+    
+
    var register=document.getElementById('register_btn');
+   };
  register.onclick =function() {
     
         // Create a request object
