@@ -6,6 +6,7 @@ function openTab(tabId,par) {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById(par).innerHTML =this.responseText;
             document.getElementById(par).style.display="block";
+            $('.mask').hide();
         }
     };
     xhttp.open("GET", "/"+tabId, true);
@@ -60,8 +61,27 @@ $('document').ready(function(){
       $('#banner i.hvr-icon-down').fadeIn("slow");
       $('#banner i.hvr-icon-down').fadeIn(5000);
   });
+<<<<<<< HEAD
 
 });
+=======
+/*$.ajaxSetup({beforeSend:$('.mask').show(), complete:$('.mask').hide()});
+  $.ajax();
+/*$('document').ajaxStart(function(){
+  $('.mask').show();
+});
+$('document').ajaxComplete(function(){
+  $('.mask').hide();
+});
+$(document).bind("ajaxSend", function(){
+   $(".mask").show();
+ }).bind("ajaxComplete", function(){
+   $(".mask").hide();
+ });*/
+});
+
+
+>>>>>>> 58db0347841c4c69949d9622f4dead8fe599efb2
 
 $(".overlay").css('height','0%');
 $(".modal").hide();
