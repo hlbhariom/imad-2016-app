@@ -40,7 +40,7 @@ console.log(password);
 };
     
 };
-
+window.onload = function () {
 var register = document.getElementById('register_btn');
     register.onclick =function() {
         // Create a request object
@@ -68,7 +68,7 @@ var register = document.getElementById('register_btn');
         request.open('POST', 'http://divya063.imad.hasura-app.io/create-user', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({username:username, password: password}));  
-        
+        }; 
     
     };
 };
