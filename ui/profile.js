@@ -1,5 +1,5 @@
 
-window.onload = function(){
+
 document.getElementById('register_btn').onclick =function() {
     
         // Create a request object
@@ -29,7 +29,7 @@ document.getElementById('register_btn').onclick =function() {
         request.send(JSON.stringify({username:username, password: password}));  
         }; 
     
-    };
+    
 };
 
     
