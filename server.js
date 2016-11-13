@@ -127,6 +127,10 @@ app.get('/ui/style.css', function (req, res) {
 app.get('/ui/main.js',function (req,res){
     res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
+
+app.get('/ui/profile.js',function (req,res){
+    res.sendFile(path.join(__dirname, 'ui', 'profile.js'));
+});
 var names=[];
 app.get('/submit-comment',function (req,res){
     var nam=req.query.comment;
