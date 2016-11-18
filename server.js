@@ -1,275 +1,77 @@
 var express = require('express');  //Express frameork object
 var morgan = require('morgan');  //Morgan Framework object
 var path = require('path');
-
+var pg=require('pg');
+var serveStatic = require('serve-static');
 var app = express();
 app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/loginform',function(req,res){
-var loginform=`
-	<div class="login">
-        	<header class="login-header">
-			<span class="text">LOGIN</span>
-			<span class="loader"></span>
-		</header>
-		<form class="login-form">
-			<input type="text" placeholder="Username" class="login-input">
-			<input type="password" placeholder="Password" class="login-input">
-			<button type="submit" class="login-btn">login</button>
-	        </form>
-	</div>`;
+app.use(express.static('public'));
+app.use('/ui',express.static(__dirname+'/ui'));
+app.use('/css',express.static(__dirname+'/css'));
+app.use('/js',express.static(__dirname+'/js'));
+app.use('/jquery',express.static(__dirname+'/jquery'));
+app.use('/font',express.static(__dirname+'/font'));
+app.use('/image',express.static(__dirname+'/image'));
 
- res.send(loginform);
- });
-//Array of 'data' objects 'articles'
-var articles={
-   'article-four': {
-   title:'Article Four | Hariom',
-   heading:'Article Four',
-   date:'29th Sept, 2016',
-   content:`<p>
-                This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-             </p>
-             <p>
-                    This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-             </p>
-             <p>
-                    This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-             </p>
 
-`},
-   'article-five': {
-   title:'Article Five | Hariom',
-   heading:'Article Five',
-   date:'29th Sept, 2016',
-   content:`<p>
-                This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-             </p>
-             <p>
-                    This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-             </p>
-             <p>
-                    This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-             </p>
+/*Data Requests Start Here*/
+app.get('/blogs/latest',function(req,res){
+  var blog=`<h2>Why Blog?</h2>
+  <h5><span class="glyphicon glyphicon-time"></span> Post by John Doe, Sep 24, 2015.</h5>
+  <h5><span class="label label-success">Lorem</span></h5><br>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <hr>
 
-`}
-};
-//Single 'data' object 'articleThree'
-var articleThree= `
+  <h4>Leave a Comment:</h4>
+  <form role="form">
+    <div class="form-group">
+      <textarea class="form-control" rows="3" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+  <br><br>
 
-                This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
+  <p><span class="badge">2</span> Comments:</p><br>
 
-                This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-
-             <p>
-                    This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-             </p>
-             This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-
-                This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-
-             <p>
-                    This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-             </p>
-             This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-
-                This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-
-             <p>
-                    This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-             </p>
-            This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-
-                This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-
-             <p>
-                    This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-             </p>
-             This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-
-                This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-
-             <p>
-                    This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-             </p>
-             This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-
-                This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-
-             <p>
-                    This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.This is an article.
-             </p>
-`;
-
-//Function that takes data object as arguement and returns htmlTemplate.
-function createTemplate(data) {
-    title=data.title;
-    date=data.date;
-    heading=data.heading;
-    content=data.content;
-    var htmlTemplate =`
-        <html>
-         <head>
-            <title>${title}</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1"/>
-            <link href="/ui/style.css" rel="stylesheet" />
-        </head>
-
-        <body>
-            <div class="container">
-                <div>
-                    <a href='/'>Home</a>
-                </div>
-                <hr/>
-                <h3>
-                    ${heading}
-                </h3>
-                <div>
-                    ${date}
-                </div>
-                <div>
-                    ${content}
-                </div>
-            </div>
-        </body>
-        </html>
-`;
-    return htmlTemplate;
-}
-
-//CSS Response
-app.get('/ui/style.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'style.css'));   //Respond to request 'req' using 'res'
+  <div class="row">
+    <div class="col-sm-2 text-center">
+      <img src="bandmember.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+    </div>
+    <div class="col-sm-10">
+      <h4>Anja <small>Sep 29, 2015, 9:12 PM</small></h4>
+      <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <br>
+    </div>
+    <div class="col-sm-2 text-center">
+      <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+    </div>
+    <div class="col-sm-10">
+      <h4>John Row <small>Sep 25, 2015, 8:25 PM</small></h4>
+      <p>I am so happy for you man! Finally. I am looking forward to read about your trendy life. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <br>
+      <p><span class="badge">1</span> Comment:</p><br>
+      <div class="row">
+        <div class="col-sm-2 text-center">
+          <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+        </div>
+        <div class="col-xs-10">
+          <h4>Nested Bro <small>Sep 25, 2015, 8:28 PM</small></h4>
+          <p>Me too! WOW!</p>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>`;
+  res.send(blog);
 });
 
-app.get('/ui/logo.png', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'logo.png'));   //png Response
-});
-
-app.get('/ui/i1.jpg', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'i1.jpg'));   //png Response
-});
-app.get('/ui/i2.jpg', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'i2.jpg'));   //jpg Response
-});
-app.get('/ui/i3.jpg', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'i3.jpg'));   //jpg Response
-});
-
-app.get('/article-one', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
-});
-
-app.get('/message', function (req, res) {
-  res.send('Article Two Will Be Served Here Soon...');  //Text Response
-});
-app.get('/content', function (req, res) {
-  res.send(articleThree);  //Text Response
-});
-
-app.get('/newArticle',function (req, res) {
-var content=`<div  class="contentwrapper tabcontent" id="newArticle">
-  <form action="##" method="post">
-  <fieldset>
-    <input type="text" name="category" placeholder="category"></input>
-    <br>
-    <input type="text" name="title" placeholder="title"></input>
-    <br>
-    <textarea class="contentdata">
-    </textarea>
-    <br>
-    <input type="submit" name="submit" value="Post"></input>
-    <br>
-  </fieldset>
-</form></div>
-    `;
-    res.send(content);
-});
-
-app.get('/fonturl1', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'fonturl1.eot'));
-});
-
-app.get('/fonturl2', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'fonturl2.eot'));
-});
-
-app.get('/fonturl3', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'fonturl3.woff2'));
-});
-
-app.get('/fonturl4', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'fonturl4.woff'));
-});
-
-app.get('/fonturl5', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'fonturl5.ttf'));
-});
-
-app.get('/fonturl6', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'fonturl6.svg'));
-});
-
-
-/*app.get('/:articleName', function (req, res) {  //':' symbol lets the articleName be a variable.
-    var articleName=req.params.articleName;   //articleName captured from requested url.
-  res.send(createTemplate(articles[articleName])); //Sending HTML Response
-});*/
-
-//Javascript Response
-app.get('/ui/main.js',function(req,res){
-    res.sendFile(path.join(__dirname,'ui','main.js'));
-});
-app.get('/ui/jquery.min.js',function(req,res){
-    res.sendFile(path.join(__dirname,'ui','jquery.min.js'));
-});
-
-
-app.get('/ui/prefixfree.min.js',function(req,res){
-    res.sendFile(path.join(__dirname,'ui','prefixfree.min.js'));
-});
-
-
-app.get('/ui/login.js',function(req,res){
-    res.sendFile(path.join(__dirname,'ui','login.js'));
-});
-app.get('/ui/loginfont.css',function(req,res){
-    res.sendFile(path.join(__dirname,'ui','loginfont.css'));
-});
-app.get('/ui/form.css',function(req,res){
-    res.sendFile(path.join(__dirname,'ui','form.css'));
-});
-app.get('/ui/form.js',function(req,res){
-    res.sendFile(path.join(__dirname,'ui','form.js'));
-});
-app.get('/ui/loginfont.css',function(req,res){
-    res.sendFile(path.join(__dirname,'ui','login.css'));
-});
-app.get('/ui/loader.gif', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'loader.gif'));
-});
-app.get('/canvas.js', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'canvas.js'));
-});
-app.get('/EasePack.min.js', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'EasePack.min.js'));
-});
-app.get('/TweenLite.min.js', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'TweenLite.min.js'));
-});
-app.get('/profile.jpg',function(req,res){
-    res.sendFile(path.join(__dirname,'ui','profile.jpg'));
-});
-
-app.get('/tinymce.min.js',function(req,res){
-    res.sendFile(path.join(__dirname,'node_modules','tinymce','tinymce.min.js'));
-});
-app.get('/init-tinymce.js',function(req,res){
-    res.sendFile(path.join(__dirname,'node_modules','tinymce','init-tinymce.js'));
-});
+/*Data Requests End Here*/
 
 
 var port = 8080;// Use 8080 for local development because you might already have apache running on 80
