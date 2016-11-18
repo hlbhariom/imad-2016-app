@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="rgba(255,240,0,0.8)">
+    <!-- Meta tags ends -->
+    <title>Welcome to Blogpedia..!</title>
+
+    <script>
+      window.console = window.console || function(t) {};
+    </script>
+    <script>
+      if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+      }
+    </script>
+  </head>
+
+
+  <body>
+    <div class="container-fluid img-responsive" id="landing">
+      <div id="large-header" class="parallax" style="overflow:hidden;">
+        <canvas  id="demo-canvas"></canvas>
+        <h1 class="main-title">Blog <span class="thin">Pedia</span></h1>
+      </div>
+    </div>
+
+    <div id="profile" class="container-fluid parallax slideanim">
+	     <div id="profile-header">
+         <img class="img-responsive img-circle img-thumbnail slideanim" src="/image/profile.jpg" id="profilepic" alt="profile.jpg">
+       </div>
+       <h1 class="page-header slideanim slide">Loona Wimberton<br>
+         <a class="btn btn-social-icon btn-mail">
+           <span class="fa fa-envelope"></span>
+         </a>
+         <a class="btn btn-social-icon btn-twitter">
+           <span class="fa fa-twitter"></span>
+         </a>
+         <a class="btn btn-social-icon btn-facebook">
+           <span class="fa fa-facebook"></span>
+         </a>
+         <a class="btn btn-social-icon btn-linkedin">
+           <span class="fa fa-linkedin"></span>
+         </a><br>
+         <a href="#" id="occupation"><span>HTML &amp; CSS Expert</span></a><br>
+         <a href="#" id="workplace"><span>Haldia Institute Of Technology</span></a>
+        </h1>
+
+    </div>
+
+
+    <div id="gallery" class="container-fluid slideanim">
+      <ul class="pgwSlideshow">
+        <li><img src="/image/san-francisco.jpg" alt="San Francisco, USA" data-description="Golden Gate Bridge"></li>
+        <li><img src="/image/rio.jpg" alt="Rio de Janeiro, Brazil"></li>
+        <li><img src="/image/london.jpg" alt=""></li>
+        <li><img src="/image/new-york.jpg" alt=""></li>
+        <li><img src="/image/new-delhi.jpg" alt=""></li>
+        <li><img src="/image/paris.jpg" alt=""></li>
+        <li><img src="/image/sydney.jpg" alt=""></li>
+        <li><img src="/image/tokyo.jpg" alt=""></li>
+        <li><img src="/image/honk-kong.jpg" alt=""></li>
+        <li><img src="/image/dakar.jpg" alt=""></li>
+        <li><img src="/image/toronto.jpg" alt=""></li>
+        <li><img src="/image/monaco.jpg" alt="Monaco"></li>
+      </ul>
+    </div>
+
+    <div id="blogs" class="container-fluid parallax slideanim">
+      <h1>Blogs</h1>
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default blog-category  slideanim">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#latest">LATEST</a>
+            </h4>
+          </div>
+          <div id="latest" class="panel-collapse collapse in">
+            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+          </div>
+        </div>
+        <div class="panel panel-default blog-category slideanim">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#inspiration">INSPIRATION</a>
+            </h4>
+          </div>
+          <div id="inspiration" class="panel-collapse collapse">
+            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+          </div>
+        </div>
+        <div class="panel panel-default blog-category slideanim">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#suggestion">SUGGESTION</a>
+            </h4>
+          </div>
+          <div id="suggestion" class="panel-collapse collapse">
+            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+          </div>
+        </div>
+        <div class="panel panel-default blog-category slideanim">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#technology">TECHNOLOGY</a>
+            </h4>
+          </div>
+          <div id="technology" class="panel-collapse collapse">
+            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+          </div>
+        </div>
+        <div class="panel panel-default blog-category slideanim">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#review">REVIEW</a>
+            </h4>
+          </div>
+          <div id="review" class="panel-collapse collapse">
+            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+          </div>
+        </div>
+        <div class="panel panel-default blog-category slideanim">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#bollywood">BOLLYWOOD</a>
+            </h4>
+          </div>
+          <div id="bollywood" class="panel-collapse collapse">
+            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+          </div>
+        </div>
+        <div class="panel panel-default blog-category slideanim">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#healthcare">HEALTHCARE</a>
+            </h4>
+          </div>
+          <div id="healthcare" class="panel-collapse collapse">
+            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="contact" class="container-fluid parallax slideanim">
+      <h2 class="text-center" style="color: black;text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.76);">CONTACT</h2>
+        <div class="row">
+          <div class="col-sm-5">
+            <p>Contact me and I'll get back to you.</p>
+            <p><span class="glyphicon glyphicon-map-marker"></span> Haldia, India</p>
+            <p><span class="glyphicon glyphicon-phone"></span> +91 8579096289</p>
+            <p><span class="glyphicon glyphicon-envelope"></span> om.secadvice@gmail.com</p>
+          </div>
+          <div class="col-sm-7">
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+              </div>
+              <div class="col-sm-6 form-group">
+                <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 form-group">
+                <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-sm-12 form-group">
+                <button class="btn btn-default pull-right" type="submit">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+        <footer>
+          <span id="copyright">
+            &nbsp;<span class="glyphicon glyphicon-copyright-mark"></span> Copyright 2016.
+          </span>
+          <span style="float:right">
+             Designed By:  <span class="glyphicon glyphicon-header"></span>ariom&nbsp;
+           </span>
+         </footer>
+
+
+
+
+    <div id="loginModal" class="modal fade" role="dialog">
+
+        <div class="modal-dialog" id="register">
+          <div class="form animate">
+            <ul class="tab-group">
+              <li class="tabs"><a class="other" href="#signup">Sign Up</a></li>
+              <li class="tabs"><a class="other" href="#signin">Log In</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="signup" style="display: block;">
+                <h1>Sign Up for Free</h1>
+                <form action="#" method="post">
+                  <div class="top-row">
+                    <div class="field-wrap">
+                      <label>
+                        First Name<span class="req">*</span>
+                      </label>
+                      <input type="text" required="" autocomplete="off">
+                    </div>
+                    <div class="field-wrap">
+                      <label>
+                        Last Name<span class="req">*</span>
+                      </label>
+                      <input type="text" required="" autocomplete="off">
+                    </div>
+                  </div>
+                  <div class="field-wrap">
+                    <label>
+                      Email Address<span class="req">*</span>
+                    </label>
+                    <input type="email" required="" autocomplete="off">
+                  </div>
+                  <div class="field-wrap">
+                    <label>
+                      Set A Password<span class="req">*</span>
+                    </label>
+                    <input type="password" required="" autocomplete="off">
+                  </div>
+                  <button type="submit" class="button button-block">Get Started</button>
+                </form>
+              </div>
+              <div id="signin" style="display: none;">
+                <h1>Welcome Back!</h1>
+                <form action="#" method="post">
+                  <div class="field-wrap">
+                    <label>Email Address<span class="req">*</span></label>
+                    <input type="email" required="" autocomplete="off">
+                  </div>
+                  <div class="field-wrap">
+                    <label>Password<span class="req">*</span></label>
+                    <input type="password" required="" autocomplete="off">
+                  </div>
+                  <p class="forgot">
+                    <a class="other" href="#forgot_password">Forgot Password?</a>
+                  </p>
+                  <button class="button button-block">Log In</button>
+                </form>
+              </div>
+            </div><!-- tab-content -->
+          </div> <!--form -->
+        </div>
+    </div>
+    <div class="modal" style="background:rgba(255,255,255,0.8)">
+      <div class="loader-inner">
+        <div class="loader-line-wrap">
+          <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+          <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+          <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+          <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+          <div class="loader-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="navheader">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Blog Pedia</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li><a href="#landing"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+            <li><a href="#profile"><span class="glyphicon glyphicon-education"></span> Profile</a></li>
+            <li><a href="#gallery"><span class="glyphicon glyphicon-film"></span> Gallery</a></li>
+            <li><a href="#blogs"><span class="glyphicon glyphicon-book"></span> Blogs</a></li>
+            <li><a href="#contact"><span class="glyphicon glyphicon-phone-alt"></span> Contact</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#signup" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#signin" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="#notify" title="Notifications" data-trigger="focus" data-toggle="popover" data-placement="auto" data-content="Content"><span class="glyphicon glyphicon-bullhorn"></span> Notification <span class="badge" id="notify-badge">5</span></a></li>
+            <li><a href="#signout" data-toggle="modal" data-target="#logoutModal"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <link href="/css/form.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/animation.css" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+    <link href="/css/pgwslideshow.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!--script type="text/javascript" src="//cdn.tinymce.com/4/tinymce.min.js"></script-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+    <script src="/js/pgwslideshow.min.js"></script>
+    <script src="/js/TweenLite.min.js"></script>
+    <script src="/js/EasePack.min.js"></script>
+    <script src="/js/canvas.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
