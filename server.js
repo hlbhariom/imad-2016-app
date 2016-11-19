@@ -2,7 +2,6 @@ var express = require('express');  //Express frameork object
 var morgan = require('morgan');  //Morgan Framework object
 var path = require('path');
 var pg=require('pg');
-var serveStatic = require('serve-static');
 var app = express();
 app.use(morgan('combined'));
 
