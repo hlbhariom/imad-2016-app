@@ -10,11 +10,6 @@ $(document).ajaxComplete(function(){
   $('div#loading-box.modal').hide();
 
 });
-$(document).ajaxSuccess(function(){
-
-
-});
-
 
 
 $(document).ready(function(){
