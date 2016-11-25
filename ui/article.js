@@ -48,7 +48,8 @@ function loadLogin () {
     request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
-                loadCommentForm(this.responseText);
+                alert('You are logged in as:'+this.responseText);
+                loadCommentForm();
             }
         }
     };
