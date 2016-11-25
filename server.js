@@ -16,7 +16,6 @@ app.use(session({
       httpOnly: true
     }
 }));
-var xssFilters = require('xss-filters');
 var config = {
     user: 'hlbhariom',
     database: 'hlbhariom',
@@ -38,8 +37,11 @@ app.use('/font',express.static(__dirname+'/font'));
 app.use('/image',express.static(__dirname+'/image'));
 
 /*Functions here*/
-function escape(string){
-    return string;
+function escape(s) { 
+    return s.replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
 }
 
 function article(articleData,tagData){
