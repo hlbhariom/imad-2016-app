@@ -32,6 +32,7 @@ $(document).ready(function(){
   $('a[data-parent="#accordion"]').click(function(){
     target=$(this).attr("href").slice(1);
     target=encodeURI(target);
+    
     $("#blogs div>div.panel-body *").remove();
     $("#blogs div#"+target+">div.panel-body").load('/blogs/'+target,function( response, status, xhr ){//Loads article list in accordion
       if ( status == "error" ){
