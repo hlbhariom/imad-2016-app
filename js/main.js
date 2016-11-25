@@ -20,23 +20,15 @@ function escapeHTML (text)
 
 $(document).ready(function(){
     $('#feedback-submit').click(function(){$('#contact input,#contact textarea').val('');})
-    $.get('/blogs/latest',function(res){
-        var data=JSON.parse(res);
-        if(res.status==200 || res.status==304){
-             $("#blogs div#latest>div.panel-body").html(data.content);
-             init();
-        }else{
-            $("#blogs div#latest>div.panel-body").html(`<div class="alert alert-danger"><strong>`+res.status+`</strong> `+data.msg+`</div>`);
-        }
-    });
-  /*$("#blogs div#latest>div.panel-body").load('/blogs/latest',function(res,stat,xhr){
+ 
+    $("#blogs div#latest>div.panel-body").load('/blogs/latest',function(res,stat,xhr){
     if(xhr.status==200){
       init();
     }
     else{
       $(this).html(`<div class="alert alert-danger"><strong>`+xhr.status+`</strong> `+response+`</div>`);
     }
-  });*/
+  });
   $('a[data-parent="#accordion"]').click(function(){
     target=$(this).attr("href").slice(1);
     target=encodeURI(target);
