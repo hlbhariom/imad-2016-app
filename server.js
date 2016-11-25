@@ -5,6 +5,7 @@ var Pool=require('pg').Pool;
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var escape=require('escape-html');
 
 var app = express();
 app.use(morgan('combined'));
@@ -40,13 +41,13 @@ app.use('/image',express.static(__dirname+'/image'));
 function article(articleData,tagData){
   var alltag="";
   for(i=0;i<tagData.rows.length;i++){
-    alltag+="<span class='label label-success' style='margin-left:3px;'>"+tagData.rows[i].tag+"</span>";
+    alltag+="<span class='label label-success' style='margin-left:3px;'>"+escape(tagData.rows[i].tag)+"</span>";
   }
   var article=`
-  <h2>${articleData.title}</h2>
-  <h5><span class="glyphicon glyphicon-time"></span> ${articleData.date}</h5>
+  <h2>${escape(articleData.title)}</h2>
+  <h5><span class="glyphicon glyphicon-time"></span> ${escape(articleData.date)}</h5>
   <h5>${alltag}</h5><br>
-    ${articleData.content}
+    ${escape(articleData.content)}
   <hr>`;
   return article;
 }
@@ -57,17 +58,17 @@ function comment(commentData){
     if(commentData.rows[i].username=="blogRootUser")
       username="Hariom";
     allcomments+=`<div class="col-sm-12">
-      <h4 class="text-success">${username} <small>${commentData.rows[i].date}</small></h4>
+      <h4 class="text-success">${escape(username)} <small>${escape(commentData.rows[i].date)}</small></h4>
       <div class="col-md-12">
-        <p>${commentData.rows[i].comment}</p>
+        <p>${escape(commentData.rows[i].comment)}</p>
       </div>
       <br>
     </div>
 `;
   }
-  var comment=`<p><span class="badge black">${commentData.rows.length}</span> Comments:</p><br>
+  var comment=`<p><span class="badge black">${escape(commentData.rows.length)}</span> Comments:</p><br>
   <div class="row">
-    ${allcomments}
+    ${escape(allcomments)}
   </div>`;
   return comment;
 }
@@ -77,7 +78,7 @@ function articleTemplate(articleData,tagData,commentData){
     <div class="form-group">
       <textarea id="comment" class="form-control" rows="3" required></textarea>
     </div>
-    <button type="submit" id="comment-submit" article_url='${articleData.category}/${encodeURI(articleData.title)}' class="btn btn-success">Submit</button>
+    <button type="submit" id="comment-submit" article_url='${escape(articleData.category)}/${escape(encodeURI(articleData.title))}' class="btn btn-success">Submit</button>
   </form>
   <br><br>`;
   return article(articleData,tagData)+commentBox+comment(commentData);
@@ -87,7 +88,7 @@ function articleListTemplate(articleData){
   var li=`<li class="list-group-item list-group-item-info">`;
   var h4=`<h4 class="list-group-item-heading" style="display:inline-block;">`;
   for(i=0;i<articleData.length;i++){
-        x += li+`<a href="#/blogs/${articleData[i].category}/${articleData[i].title}" data-toggle="modal" data-target="#articleModal">`+h4+articleData[i].title+'</h4></a><p class="list-group-item-text">'+articleData[i].date+'</p></li>';
+        x += li+`<a href="#/blogs/${escape(articleData[i].category)}/${escape(articleData[i].title)}" data-toggle="modal" data-target="#articleModal">`+h4+escape(articleData[i].title)+'</h4></a><p class="list-group-item-text">'+escape(articleData[i].date)+'</p></li>';
   }
       x += '</ul>';
       return x;
