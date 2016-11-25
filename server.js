@@ -40,6 +40,12 @@ app.use('/image',express.static(__dirname+'/image'));
 function escape(s) { 
     return s;
 }
+function jSon(s){
+    return JSON.stringify(s);
+}
+function msgjSon(s){
+    return jSon({"msg":s});
+}
 
 function article(articleData,tagData){
   var alltag="";
@@ -94,7 +100,7 @@ function articleListTemplate(articleData){
         x += li+`<a href="#/blogs/${escape(articleData[i].category)}/${escape(articleData[i].title)}" data-toggle="modal" data-target="#articleModal">`+h4+escape(articleData[i].title)+'</h4></a><p class="list-group-item-text">'+escape(articleData[i].date)+'</p></li>';
   }
       x += '</ul>';
-      return x;
+      return jSon({"content":x});
 }
 
 
@@ -142,11 +148,11 @@ app.get('/blogs/:category',function(req,res){
   }
   pool.query(query,[category],function(err,result){
      if(err){
-       res.status(500).send('Cannot retrieve list.\n'+err.toString());
+       res.status(500).send(msgjSon('Cannot retrieve list.\n'+err.toString()));
      }
      else{
        if(result.rows.length==0){
-         res.status(404).send('There is no article to show.');
+         res.status(404).send(msgjSon('There is no article to show.'));
        }
        else{
          res.send(articleListTemplate(result.rows));
