@@ -93,9 +93,9 @@ function init(){
                     { var commentObj=JSON.parse(data);
                       $('span.badge.black').html(cnt);
                       var commentElement=`<div class="col-sm-12">
-                        <h4 class="text-success">${commentObj.username} <small>${commentObj.date}</small></h4>
+                        <h4 class="text-success">${xssFilters.inHTMLData(commentObj.username)} <small>${ xssFilters.inHTMLData(commentObj.date)}</small></h4>
                         <div class="col-md-12">
-                          <p>${commentObj.comment}</p>
+                          <p>${xssFilters.inHTMLData(commentObj.comment)}</p>
                         </div>
                         <br>
                       </div>
@@ -128,7 +128,7 @@ $('#article-submit').click(function(){
     $.ajax({
       type:'POST',
       url:'/post/article',
-      data:JSON.stringify({"title":title,"category":category,"tags":tags,"content":content}),
+      data:JSON.stringify({"title": xssFilters.inHTMLData(title),"category": xssFilters.inHTMLData(category),"tags": xssFilters.inHTMLData(tags),"content": xssFilters.inHTMLData(content)}),
       contentType:"application/json",
       success: function(data,msg)
                 { alert(data) },
@@ -145,7 +145,7 @@ $('#signup button[type="submit"]').click(function(){
     $.ajax({
       type:'POST',
       url:'/register',
-      data:JSON.stringify({"username":username,"email":email,"password":password}),
+      data:JSON.stringify({"username": xssFilters.inHTMLData(username),"email":email,"password":password}),
       contentType:"application/json",
       success: function(data,msg)
                 { alert(data);
@@ -163,7 +163,7 @@ $('#signin button[type="submit"]').click(function(){
     $.ajax({
       type:'POST',
       url:'/login',
-      data:JSON.stringify({"username":username,"password":password}),
+      data:JSON.stringify({"username": xssFilters.inHTMLData(username),"password":password}),
       contentType:"application/json",
       success: function(data,msg)
                 { alert(data);
