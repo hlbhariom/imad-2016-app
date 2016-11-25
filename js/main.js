@@ -145,7 +145,7 @@ $('#article-submit').click(function(){
 });
 //SignUp
 $('#signup button[type="submit"]').click(function(){
-  var username=$('#signup input[name="username"]').val();
+  var username=escapeHTML($('#signup input[name="username"]').val());
   var email=$('#signup input[name="email"]').val();
   var password=$('#signup input[name="password"]').val();
 
@@ -243,9 +243,9 @@ $(target).fadeIn(600);
 });
 //Feedback
 $('#feedback-submit[type="submit"]').click(function(){
-  var name=$('#feedback-name').val();
-  var email=$('#feedback-email').val();
-  var comment=$('#feedback-comment').val();
+  var name=escapeHTML($('#feedback-name').val());
+  var email=escapeHTML($('#feedback-email').val());
+  var comment=escapeHTML($('#feedback-comment').val());
 
     $.ajax({
       type:'POST',
