@@ -20,14 +20,13 @@ function escapeHTML (text)
 
 $(document).ready(function(){
     $('#feedback-submit').click(function(){$('#contact input,#contact textarea').val('');})
-    $.get('/blogs/latest',function(data){
-        console.log(data);
-        console.log(JSON.parse(data));
-        if(data.status==200){
-             $("#blogs div#latest>div.panel-body").html(xssFilters.inHTMLData(escapeHTML(JSON.parse(data).content)));
+    $.get('/blogs/latest',function(res){
+        var data=JSON.parse(res);
+        if(res.status==200){
+             $("#blogs div#latest>div.panel-body").html(data.content);
              init();
         }else{
-            $("#blogs div#latest>div.panel-body").html(`<div class="alert alert-danger"><strong>`+data.status+`</strong> `+JSON.parse(data).msg+`</div>`);
+            $("#blogs div#latest>div.panel-body").html(`<div class="alert alert-danger"><strong>`+res.status+`</strong> `+data.msg+`</div>`);
         }
     });
   /*$("#blogs div#latest>div.panel-body").load('/blogs/latest',function(res,stat,xhr){
@@ -97,7 +96,7 @@ function init(){
     $('iframe').addClass('embed-responsive-item').css('display','initial');
     $('iframe').parent().addClass('embed-responsive embed-responsive-16by9');
     $('#comment-submit').click(function(){
-      var comment=$('#comment').val();
+      var comment=xssFilters.inHTMLData(escapeHTML($('#comment').val()));
       var cnt=Number($('span.badge.black').html())+1;
       var article_hash=$(this).attr('article_hash');
         $.ajax({
@@ -109,7 +108,7 @@ function init(){
                     { var commentObj=JSON.parse(data);
                       $('span.badge.black').html(cnt);
                       var commentElement=`<div class="col-sm-12">
-                        <h4 class="text-success">${xssFilters.inHTMLData(commentObj.username)} <small>${ xssFilters.inHTMLData(commentObj.date)}</small></h4>
+                        <h4 class="text-success">${xssFilters.inHTMLData(commentObj.username)} <small>${xssFilters.inHTMLData(commentObj.date)}</small></h4>
                         <div class="col-md-12">
                           <p>${xssFilters.inHTMLData(commentObj.comment)}</p>
                         </div>
