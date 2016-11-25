@@ -38,10 +38,7 @@ app.use('/image',express.static(__dirname+'/image'));
 
 /*Functions here*/
 function escape(s) { 
-    return s.replace(/&/g, '&amp;')
-            .replace(/"/g, '&quot;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;');
+    return s;
 }
 
 function article(articleData,tagData){
