@@ -20,16 +20,16 @@ function escapeHTML (text)
 
 $(document).ready(function(){
     $('#feedback-submit').click(function(){$('#contact input,#contact textarea').val('');})
-    $("#blogs div#latest>div.panel-body").ajax({
+    $.ajax({
         url:'/blogs/latest',
         type:'GET',
         dataType:'json',
         success:function(data,msg){
-             $(this).html(xssFilters.inHTMLData(escapeHTML(JSON.parse(data).content)));
+             $("#blogs div#latest>div.panel-body").html(xssFilters.inHTMLData(escapeHTML(JSON.parse(data).content)));
              init();
         },
         error:function(err){
-            $(this).html(`<div class="alert alert-danger"><strong>`+err.status+`</strong> `+JSON.parse(err).msg+`</div>`);
+            $("#blogs div#latest>div.panel-body").html(`<div class="alert alert-danger"><strong>`+err.status+`</strong> `+JSON.parse(err).msg+`</div>`);
         }
     });
   /*$("#blogs div#latest>div.panel-body").load('/blogs/latest',function(res,stat,xhr){
