@@ -16,6 +16,7 @@ app.use(session({
       httpOnly: true
     }
 }));
+var xssFilters = require('xss-filters');
 var config = {
     user: 'hlbhariom',
     database: 'hlbhariom',
