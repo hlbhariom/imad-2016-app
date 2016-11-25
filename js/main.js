@@ -22,7 +22,7 @@ $(document).ready(function(){
     $('#feedback-submit').click(function(){$('#contact input,#contact textarea').val('');})
     $.get('/blogs/latest',function(res){
         var data=JSON.parse(res);
-        if(res.status==200){
+        if(res.status==200 || res.status==304){
              $("#blogs div#latest>div.panel-body").html(data.content);
              init();
         }else{
