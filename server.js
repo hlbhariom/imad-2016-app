@@ -161,7 +161,7 @@ app.get('/blogs/:category/:title',function(req,res){
   var query="";
   var category=decodeURI(req.params.category);
   var title=decodeURI(req.params.title);
-  console.log(category+'/'+title);
+  console.log(category+'$'+title);
   query="SELECT * FROM article where hash=MD5($1)";
   pool.query(query,[title+category],function(err,result){
     if(err){
