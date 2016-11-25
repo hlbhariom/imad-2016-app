@@ -14,14 +14,26 @@ $(document).ajaxComplete(function(){
 
 $(document).ready(function(){
     $('#feedback-submit').click(function(){$('#contact input,#contact textarea').val('');})
-  $("#blogs div#latest>div.panel-body").load('/blogs/latest',function(res,stat,xhr){
+    $("#blogs div#latest>div.panel-body").ajax({
+        url:'/blogs/latest',
+        type:'GET',
+        dataType:'json',
+        success:function(data,msg){
+             $(this).html(xssFilters.inHTMLData(escapeHTML(JSON.parse(data).content)));
+             init();
+        },
+        error:function(err){
+            $(this).html(`<div class="alert alert-danger"><strong>`+err.status+`</strong> `+JSON.parse(err).responseText+`</div>`);
+        }
+    });
+  /*$("#blogs div#latest>div.panel-body").load('/blogs/latest',function(res,stat,xhr){
     if(xhr.status==200){
       init();
     }
     else{
       $(this).html(`<div class="alert alert-danger"><strong>`+xhr.status+`</strong> `+response+`</div>`);
     }
-  });
+  });*/
   $('a[data-parent="#accordion"]').click(function(){
     target=$(this).attr("href").slice(1);
     target=encodeURI(target);
