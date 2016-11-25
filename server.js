@@ -28,6 +28,9 @@ var pool=new Pool(config);
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
+app.get('/manifest.appcache', function (req, res) {
+  res.sendFile(path.join(__dirname, 'manifest.appcache'));
+});
 app.use(express.static('public'));
 app.use('/ui',express.static(__dirname+'/ui'));
 app.use('/css',express.static(__dirname+'/css'));
