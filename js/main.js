@@ -10,7 +10,13 @@ $(document).ajaxComplete(function(){
   $('div#loading-box.modal').hide();
 
 });
-
+function escapeHTML (text)
+{
+    var $text = document.createTextNode(text);
+    var $div = document.createElement('div');
+    $div.appendChild($text);
+    return $div.innerHTML;
+}
 
 $(document).ready(function(){
     $('#feedback-submit').click(function(){$('#contact input,#contact textarea').val('');})
@@ -23,7 +29,7 @@ $(document).ready(function(){
              init();
         },
         error:function(err){
-            $(this).html(`<div class="alert alert-danger"><strong>`+err.status+`</strong> `+JSON.parse(err).responseText+`</div>`);
+            $(this).html(`<div class="alert alert-danger"><strong>`+err.status+`</strong> `+JSON.parse(err).msg+`</div>`);
         }
     });
   /*$("#blogs div#latest>div.panel-body").load('/blogs/latest',function(res,stat,xhr){
