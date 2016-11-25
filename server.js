@@ -5,7 +5,7 @@ var Pool=require('pg').Pool;
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var escape=require('escape-html');
+
 
 var app = express();
 app.use(morgan('combined'));
@@ -37,6 +37,9 @@ app.use('/font',express.static(__dirname+'/font'));
 app.use('/image',express.static(__dirname+'/image'));
 
 /*Functions here*/
+function escape(string){
+    return string;
+}
 
 function article(articleData,tagData){
   var alltag="";
