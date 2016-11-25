@@ -136,7 +136,7 @@ $('#article-submit').click(function(){
     $.ajax({
       type:'POST',
       url:'/post/article',
-      data:JSON.stringify({"title": xssFilters.inHTMLData(title),"category": xssFilters.inHTMLData(category),"tags": xssFilters.inHTMLData(tags),"content": xssFilters.inHTMLData(content)}),
+      data:JSON.stringify({"title":title,"category": category,"tags": tags,"content": content}),
       contentType:"application/json",
       success: function(data,msg)
                 { alert(data) },
