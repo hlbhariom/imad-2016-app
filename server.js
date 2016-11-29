@@ -13,20 +13,33 @@ app.use(bodyParser.json());
 app.use(session({
     secret: 'nD8uJkp$m/nZ',
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 30,
-      httpOnly: true
-    }
+      httpOnly: true,
+    },
+    resave:true,
+    saveUninitialized:true
+
 }));
-var config = {
-    user: 'hlbhariom',
-    database: 'hlbhariom',
-    host: 'db.imad.hasura-app.io',
-    port: '5432',
-    password: process.env.DB_PASSWORD
+var blogRootUser='blogRootUser';
+var config={
+      'prod':{
+          user: 'hlbhariom',
+          database: 'hlbhariom',
+          host: 'db.imad.hasura-app.io',
+          port: '5432',
+          password: process.env.DB_PASSWORD
+      },
+      'dev': {
+          user: 'hlbhariom',
+          database: 'hlbhariom',
+          host: 'localhost',
+          port: '5432',
+          password: 'password'
+      }
 };
-var pool=new Pool(config);
+var pool=new Pool(config.prod);
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+  res.sendFile(path.join(__dirname, 'ui', 'index1.html'));
 });
 app.get('/manifest.appcache', function (req, res) {
   res.sendFile(path.join(__dirname, 'manifest.appcache'));
@@ -40,62 +53,48 @@ app.use('/font',express.static(__dirname+'/font'));
 app.use('/image',express.static(__dirname+'/image'));
 
 /*Functions here*/
-function escape(s) { 
+function escape(s) {
     return s;
 }
+function jstring(s){
+  return JSON.stringify(s);
+}
+function msg(message){
+  return JSON.stringify({msg:message});
+}
 
-
+/*
 function article(articleData,tagData){
   var alltag="";
   for(i=0;i<tagData.rows.length;i++){
-    alltag+="<span class='label label-success' style='margin-left:3px;'>"+escape(tagData.rows[i].tag)+"</span>";
+    alltag+="<span class='label label-success' style='margin-left:3px;'>"+tagData.rows[i].tag+"</span>";
   }
   var article=`
-  <h2>${escape(articleData.title)}</h2>
-  <h5><span class="glyphicon glyphicon-time"></span> ${escape(articleData.date)}</h5>
+  <h2>${articleData.title}</h2>
+  <h5><span class="glyphicon glyphicon-time"></span> ${articleData.date}</h5>
   <h5>${alltag}</h5><br>
-    ${escape(articleData.content)}
+    ${articleData.content}
   <hr>`;
   return article;
 }
-function comment(commentData){
-  var allcomments="";
-  for(i=0;i<commentData.rows.length;i++){
-    var username=commentData.rows[i].username;
-    if(commentData.rows[i].username=="blogRootUser")
-      username="Hariom";
-    allcomments+=`<div class="col-sm-12">
-      <h4 class="text-success">${escape(username)} <small>${escape(commentData.rows[i].date)}</small></h4>
-      <div class="col-md-12">
-        <p>${escape(commentData.rows[i].comment)}</p>
-      </div>
-      <br>
-    </div>
-`;
-  }
-  var comment=`<p><span class="badge black">${escape(commentData.rows.length)}</span> Comments:</p><br>
-  <div class="row">
-    ${escape(allcomments)}
-  </div>`;
-  return comment;
-}
-function articleTemplate(articleData,tagData,commentData){
+function articleTemplate(articleData,tagData){
   var commentBox=`<h4>Leave a Comment:</h4>
   <form role="form" action="javascript:void(0);">
     <div class="form-group">
       <textarea id="comment" class="form-control" rows="3" required></textarea>
     </div>
-    <button type="submit" id="comment-submit" article_url='${escape(articleData.category)}/${escape(encodeURI(articleData.title))}' class="btn btn-success">Submit</button>
+    <button type="submit" id="comment-submit" article_url='${articleData.category}/${encodeURIComponent(articleData.title)}' class="btn btn-success">Submit</button>
   </form>
   <br><br>`;
-  return article(articleData,tagData)+commentBox+comment(commentData);
-}
+  var comments='<div id="comments" class="container"></div>';
+  return article(articleData,tagData)+commentBox+comments;
+}*/
 function articleListTemplate(articleData){
   var x=`<ul class="list-group">`;
   var li=`<li class="list-group-item list-group-item-info">`;
   var h4=`<h4 class="list-group-item-heading" style="display:inline-block;">`;
   for(i=0;i<articleData.length;i++){
-        x += li+`<a href="#/blogs/${escape(articleData[i].category)}/${escape(articleData[i].title)}" data-toggle="modal" data-target="#articleModal">`+h4+escape(articleData[i].title)+'</h4></a><p class="list-group-item-text">'+escape(articleData[i].date)+'</p></li>';
+        x += li+`<a href="#/blogs/${articleData[i].category}/${encodeURIComponent(articleData[i].title)}" data-toggle="modal" data-target="#articleModal">`+h4+escape(articleData[i].title)+'</h4></a><p class="list-group-item-text">'+escape(articleData[i].date)+'</p></li>';
   }
       x += '</ul>';
       return x;
@@ -115,7 +114,7 @@ function checkAuth(req, res, next) {
   }
 }
 function checkAdmin(req, res, next) {
-  if (!req.session || !req.session.auth || !req.session.auth.username || req.session.auth.username!='blogRootUser') {
+  if (!req.session || !req.session.auth || !req.session.auth.username || req.session.auth.username!=blogRootUser) {
     res.status(401).send('You must be logged in as admin to proceed.');
   } else {
     next();
@@ -150,7 +149,7 @@ app.get('/blogs/:category',function(req,res){
      }
      else{
        if(result.rows.length==0){
-         res.status(404).send('There is no article to show.');
+         res.status(404).send('There is no article to show in this category.');
        }
        else{
          res.send(articleListTemplate(result.rows));
@@ -162,29 +161,36 @@ app.get('/blogs/:category',function(req,res){
 
 app.get('/blogs/:category/:title',function(req,res){
   var query="";
-  var category=decodeURI(req.params.category);
-  var title=decodeURI(req.params.title);
-  console.log(category+'$'+title);
+  var category=decodeURIComponent(req.params.category);
+  var title=decodeURIComponent(req.params.title);
   query="SELECT * FROM article where hash=MD5($1)";
   pool.query(query,[title+category],function(err,result){
     if(err){
-      res.status(500).send(err.toString());
+      res.status(500).send(msg('Server error'+err.toString()));
     }
     else{
       if(result.rows.length==0){
-        res.status(404).send('Article Not Found.');
+        res.status(404).send(msg('Article Not Found.'));
       }
       else{
-        pool.query("SELECT comment,username,date FROM comment where article_hash=$1",[result.rows[0].hash],function(errc,resultc){
-          if(!errc){
             pool.query("SELECT tag FROM tag where article_hash=$1",[result.rows[0].hash],function(errt,resultt){
                     if(!errt){
-                      res.send(articleTemplate(result.rows[0],resultt,resultc));
+                      res.send(jstring({"article":result.rows[0],"tags":resultt}));
                     }
             });
           }
-        });
-      }
+        }
+      });
+  });
+
+app.get('/getComments/:article_hash',function(req,res){
+  var hash=req.params.article_hash;
+  pool.query("SELECT comment,username,date FROM comment where article_hash=MD5($1)",[hash],function(err,result){
+    if(err){
+      res.status(400).send(msg('Can\'t get comments'+err.toString()));
+    }
+    else{
+      res.send(jstring(result.rows));
     }
   });
 });
@@ -228,7 +234,7 @@ app.post('/post/comment/:category/:title',checkAuth,function(req,res){
     res.status(400).send("We don't insert empty comments.")
   }else{
     var date=Date();
-    if(req.session.auth.username=="blogRootUser")
+    if(req.session.auth.username==blogRootUser)
       username="Hariom";
       else{
         username=req.session.auth.username;
@@ -272,10 +278,17 @@ app.post('/post/feedback',function(req,res){
 app.post('/register',function(req,res){
   var username=req.body.username;
   var email=req.body.email;
+  var password=req.body.password;
   if(!emailValidate(email)){
       res.status(400).send('Should I tell you the format of email?');
-  }else{
-  var password=req.body.password;
+  }
+  else if(!username.trim() || !password.trim() || username.length>32 || password.length>32){
+    res.status(400).send('Cannot leave username or password blank.Please Enter Username/Password:(Upto 32 chars)')
+  }
+  else if(!/^[a-zA-Z0-9_.@]+$/.test(username)){  //If username contains other than a-z,A-Z,0-9 then true.
+        res.status(500).send("Username can't contain special characters except _.@");
+	}else{
+
   var salt = crypto.randomBytes(128).toString('hex');
   password = hash(password, salt);
   pool.query('SELECT username from "user" where username=$1',[username],function(err,result){
@@ -304,7 +317,9 @@ app.post('/register',function(req,res){
 app.post('/login',function(req,res){
   var username = req.body.username;
   var password = req.body.password;
-
+  if(!username.trim() || !password.trim() || username.length>32 || password.length>32){
+    res.status(400).send('Cannot leave username or password blank. Please Enter Username/Password:(Upto 32 chars)')
+  }
    pool.query('SELECT * FROM "user" WHERE username = $1 or email=$1', [username], function (err, result) {
       if (err) {
           res.status(500).send(err.toString());
@@ -333,7 +348,7 @@ app.post('/login',function(req,res){
 });
 app.get('/check-login',checkAuth,function (req, res) {
   var username;
-  if(req.session.auth.username=="blogRootUser")
+  if(req.session.auth.username==blogRootUser)
     username="admin";
     else{
       username=req.session.auth.username;
