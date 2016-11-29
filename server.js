@@ -39,7 +39,7 @@ var config={
 var pool=new Pool(config.prod);
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index1.html'));
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/manifest.appcache', function (req, res) {
   res.sendFile(path.join(__dirname, 'manifest.appcache'));
