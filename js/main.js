@@ -108,7 +108,7 @@ function init(){
             $('iframe').addClass('embed-responsive-item').css('display','initial');
             $('iframe').parent().addClass('embed-responsive embed-responsive-16by9');
             $('#comment-submit').click(function(){
-            var comment=xssFilters.inHTMLData(escapeHTML($('#comment').val()));
+            var comment=escapeHTML($('#comment').val());
               $.ajax({
                 type:'POST',
                 url:'/post/comment/'+article_url,
@@ -207,7 +207,7 @@ $('#signup button[type="submit"]').click(function(){
     $.ajax({
       type:'POST',
       url:'/register',
-      data:JSON.stringify({"username": xssFilters.inHTMLData(username),"email":email,"password":password}),
+      data:JSON.stringify({"username": username,"email":email,"password":password}),
       contentType:"application/json",
       success: function(data,msg)
                 { alert(data);
@@ -226,7 +226,7 @@ $('#signin button[type="submit"]').click(function(){
     $.ajax({
       type:'POST',
       url:'/login',
-      data:JSON.stringify({"username": xssFilters.inHTMLData(username),"password":password}),
+      data:JSON.stringify({"username": username,"password":password}),
       contentType:"application/json",
       success: function(data,msg)
                 { alert(data);
