@@ -19,7 +19,7 @@ app.use(session({
     saveUninitialized:true
 
 }));
-var blogRootUser='blogRootUser';
+var blogRootUser='Hariom';
 var config={
       'prod':{
           user: 'hlbhariom',
