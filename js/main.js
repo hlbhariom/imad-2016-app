@@ -25,7 +25,7 @@ $(document).ready(function(){
       init();
     }
     else{
-      $(this).html(`<div class="alert alert-danger"><strong>`+xhr.status+`</strong> `+response+`</div>`);
+      $(this).html(`<div class="alert alert-danger"><strong>`+response+`</strong> </div>`);
     }
   });
   $('a[data-parent="#accordion"]').click(function(){
