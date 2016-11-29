@@ -21,6 +21,10 @@ function escapeHTML (text)
 }
 
 $(document).ready(function(){
+    $('#profile').css('background-image', 'url("/image/cover.jpg")');
+    $('#blogs').css('background-image', 'url("/image/blogbg.jpg")');
+    $('#contact').css('background-image', 'url("/image/contact.jpg")');
+    $('#compose').css('background-image', 'url("/image/compose.jpg")');
     $('#feedback-submit').click(function(){$('#contact input,#contact textarea').val('');})
     $("#blogs div#latest>div.panel-body").load('/blogs/latest',function(res,stat,xhr){
     if(xhr.status==200){
