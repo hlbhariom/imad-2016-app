@@ -13,6 +13,8 @@
     "morgan": "^1.7.0",
 	"pg": "^6.1.0",
 	"tinymce":"^4",
-	  "xss-filters":"^1.2.7"
+	  "xss-filters":"^1.2.7",
+	  "body-parser":"^1.15",
+	  "express-session":"^1.14"
   }
 }
