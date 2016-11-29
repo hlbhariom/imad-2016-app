@@ -1,13 +1,15 @@
+var loadingref='   <span id="loadingref" class="glyphicon glyphicon-refresh glyphicon-refresh-animate" style="text-decoration:none;"></span>';
+var loadingrep='   <span id="loadingrep" class="glyphicon glyphicon-repeat glyphicon-refresh-animate" style="text-decoration:none;"></span>';
+
 $(document).click(function(e) {
     if (!$(e.target).is('#navheader a')) {
         $('#navheader .collapse').collapse('hide');
     }
 });
 $(document).ajaxStart(function(e){
-  $('div#loading-box.modal').css('z-index','10000').show();
+
 });
 $(document).ajaxComplete(function(){
-  $('div#loading-box.modal').hide();
   $('input,textarea').val('').trigger('keyup');
 });
 function escapeHTML (text)
@@ -25,22 +27,28 @@ $(document).ready(function(){
       init();
     }
     else{
-      $(this).html(`<div class="alert alert-danger"><strong>`+response+`</strong> </div>`);
+      $(this).html(`<div class="alert alert-danger"><strong>`+res+'</strong> </div>');
     }
   });
   $('a[data-parent="#accordion"]').click(function(){
-    target=$(this).attr("href").slice(1);
-    target=encodeURIComponent(target);
+
+    target=$(this).attr("href");
+    if(!($(target+'.in').length)){
+    $(this).append(loadingrep);
+    target=encodeURIComponent(target.slice(1));
 
     $("#blogs div>div.panel-body *").remove();
     $("#blogs div#"+target+">div.panel-body").load('/blogs/'+target,function( response, status, xhr ){//Loads article list in accordion
       if ( status == "error" ){
-        $(this).html(`<div class="alert alert-danger"><strong>`+xhr.status+`</strong> `+response+`</div>`);
+        $(this).html(`<div class="alert alert-danger"><strong>`+response+`</strong> </div>`);
       }
       if(xhr.status==200){
         init();
+
       }
+      $('#loadingrep').remove();
     });
+  }
 });
 
   var pgwSlide=$('.pgwSlideshow').pgwSlideshow();
@@ -311,7 +319,7 @@ function article(articleData,tagData){
   }
   var article=`
   <h2>${articleData.title}</h2>
-  <h5><span class="glyphicon glyphicon-time"></span> ${articleData.date.toLocaleString()}</h5>
+  <h5><span class="glyphicon glyphicon-time"></span> ${new Date(articleData.date)}</h5>
   <h5>${alltag}</h5><br>
     ${articleData.content}
   <hr>`;
