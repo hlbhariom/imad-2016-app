@@ -20,7 +20,7 @@ function escapeHTML (text)
 
 $(document).ready(function(){
     $('#feedback-submit').click(function(){$('#contact input,#contact textarea').val('');})
-
+    $('[data-toggle="popover"]').popover(); 
     $("#blogs div#latest>div.panel-body").load('/blogs/latest',function(res,stat,xhr){
     if(xhr.status==200){
       init();
