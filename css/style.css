@@ -48,7 +48,7 @@ span.black{
 }
 #compose{
   min-height: 588px;
-  background-image:url("/image/compose.jpg");
+  /*background-image:url("/image/compose.jpg");*/
   display: none;
 }
 #compose>form{
@@ -72,7 +72,7 @@ span.black{
  height: 200px;
 }
 #profile{
-  background-image: url("/image/cover.jpg");
+  /*background-image: url("/image/cover.jpg");*/
   background-size:100% /*300px*/ 100%;
   background-repeat: no-repeat;
   border-top:2px solid white;
@@ -92,13 +92,13 @@ span.black{
   text-decoration: underline;
 }
 #blogs{
-  background-image: url("/image/blogbg.jpg");
+  /*background-image: url("/image/blogbg.jpg");*/
   background-size: cover;
   background-repeat: repeat-y;
   min-height: 588px;
 }
 #contact{
-  background-image: url("/image/contact.jpg");
+/*  background-image: url("/image/contact.jpg");*/
   padding-bottom: 20px;
   min-height: 588px;
   padding: 10%;
