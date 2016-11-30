@@ -1,5 +1,5 @@
-var loadingref='   <span id="loadingref" class="glyphicon glyphicon-refresh glyphicon-refresh-animate" style="text-decoration:none;"></span>';
-var loadingrep='   <span id="loadingrep" class="glyphicon glyphicon-repeat glyphicon-refresh-animate" style="text-decoration:none;"></span>';
+var loadingref='<pre>   <span id="loadingref" class="glyphicon glyphicon-refresh glyphicon-refresh-animate" style="text-decoration:none;"></span></pre>';
+var loadingrep='<pre>   <span id="loadingrep" class="glyphicon glyphicon-repeat glyphicon-refresh-animate" style="text-decoration:none;"></span></pre>';
 
 $(document).click(function(e) {
     if (!$(e.target).is('#navheader a')) {
