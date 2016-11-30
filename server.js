@@ -63,38 +63,13 @@ function msg(message){
   return JSON.stringify({msg:message});
 }
 
-/*
-function article(articleData,tagData){
-  var alltag="";
-  for(i=0;i<tagData.rows.length;i++){
-    alltag+="<span class='label label-success' style='margin-left:3px;'>"+tagData.rows[i].tag+"</span>";
-  }
-  var article=`
-  <h2>${articleData.title}</h2>
-  <h5><span class="glyphicon glyphicon-time"></span> ${articleData.date}</h5>
-  <h5>${alltag}</h5><br>
-    ${articleData.content}
-  <hr>`;
-  return article;
-}
-function articleTemplate(articleData,tagData){
-  var commentBox=`<h4>Leave a Comment:</h4>
-  <form role="form" action="javascript:void(0);">
-    <div class="form-group">
-      <textarea id="comment" class="form-control" rows="3" required></textarea>
-    </div>
-    <button type="submit" id="comment-submit" article_url='${articleData.category}/${encodeURIComponent(articleData.title)}' class="btn btn-success">Submit</button>
-  </form>
-  <br><br>`;
-  var comments='<div id="comments" class="container"></div>';
-  return article(articleData,tagData)+commentBox+comments;
-}*/
+
 function articleListTemplate(articleData){
   var x=`<ul class="list-group">`;
   var li=`<li class="list-group-item list-group-item-info">`;
   var h4=`<h4 class="list-group-item-heading" style="display:inline-block;">`;
   for(i=0;i<articleData.length;i++){
-        x += li+`<a href="#/blogs/${articleData[i].category}/${encodeURIComponent(articleData[i].title)}" data-toggle="modal" data-target="#articleModal">`+h4+escape(articleData[i].title)+'</h4></a><p class="list-group-item-text">'+escape(articleData[i].date)+'</p></li>';
+        x += li+`<a href="#/blogs/${articleData[i].category}/${encodeURIComponent(articleData[i].title)}" data-toggle="modal" data-target="#articleModal">`+h4+articleData[i].title+'</h4></a><p class="list-group-item-text">'+articleData[i].date+'</p></li>';
   }
       x += '</ul>';
       return x;
