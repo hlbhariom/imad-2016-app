@@ -38,8 +38,8 @@ span.black{
   outline:none;
 }
 #profile,#gallery,#blogs,#contact,#compose{
-  height: inherit;/*Trying*/
-  padding-top: 53px;
+  height: inherit;
+  padding-top: 50px;
 }
 #compose{
   min-height: 588px;
