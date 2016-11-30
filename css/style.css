@@ -39,7 +39,7 @@ span.black{
 }
 #profile,#gallery,#blogs,#contact,#compose{
   height: inherit;
-  padding-top: 50px;
+  padding-top: 53px;
 }
 #compose{
   min-height: 588px;
