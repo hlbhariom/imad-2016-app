@@ -69,7 +69,7 @@ function articleListTemplate(articleData){
   var li=`<li class="list-group-item list-group-item-info">`;
   var h4=`<h4 class="list-group-item-heading" style="display:inline-block;">`;
   for(i=0;i<articleData.length;i++){
-        x += li+`<a href="#/blogs/${articleData[i].category}/${encodeURIComponent(articleData[i].title)}" data-toggle="modal" data-target="#articleModal">`+h4+articleData[i].title+'</h4></a><p class="list-group-item-text">'+articleData[i].date+'</p></li>';
+        x += li+`<a href="#/blogs/${articleData[i].category}/${encodeURIComponent(articleData[i].title)}" data-toggle="modal" data-target="#articleModal" data-keyboard="true">`+h4+articleData[i].title+'</h4></a><p class="list-group-item-text">'+articleData[i].date+'</p></li>';
   }
       x += '</ul>';
       return x;
