@@ -113,6 +113,7 @@ function init(){
             $('iframe').parent().addClass('embed-responsive embed-responsive-16by9');
             $('img').addClass('img-responsive');
             $('#comment-submit').click(function(){
+            $(this).append(loadingref);
             var comment=escapeHTML($('#comment').val());
               $.ajax({
                 type:'POST',
@@ -379,8 +380,8 @@ function loggedinUser(username){
 }
 
 function loggedoutUser(){
-  var signup=`<li><a href="#signup" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>`;
-  var signin=`<li><a href="#signin" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>`;
+  var signup=`<li><a href="#signup" data-toggle="modal" data-target="#loginModal" data-keyboard="true"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>`;
+  var signin=`<li><a href="#signin" data-toggle="modal" data-target="#loginModal" data-keyboard="true"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>`;
    $('a.navbar-brand').html('Blog Pedia');
   $('ul#accountBar').html(signup+signin);
   //$('ul#accountBar').append(signin);
