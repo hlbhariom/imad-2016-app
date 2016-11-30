@@ -166,3 +166,10 @@ span.black{
     color:gold;
     text-decoration: underline;
   }
+
+@media (min-width: 768px){
+#articleModal>div.modal-dialog {
+    width: 85%;
+    margin: 30px auto;
+}
+}
