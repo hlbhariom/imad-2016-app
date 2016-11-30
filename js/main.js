@@ -111,6 +111,7 @@ function init(){
             getComments(title+category);
             $('iframe').addClass('embed-responsive-item').css('display','initial');
             $('iframe').parent().addClass('embed-responsive embed-responsive-16by9');
+            $('img').addClass('img-responsive');
             $('#comment-submit').click(function(){
             var comment=escapeHTML($('#comment').val());
               $.ajax({
