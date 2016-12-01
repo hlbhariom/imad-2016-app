@@ -138,8 +138,9 @@ app.get('/blogs/:category/:title',function(req,res){
   var query="";
   var category=decodeURIComponent(req.params.category);
   var title=decodeURIComponent(req.params.title);
+  var article_unhashed=title+category;
   query="SELECT title,category,date,content FROM article where hash=MD5($1)";
-  pool.query(query,[title+category],function(err,result){
+  pool.query(query,[article_unhashed],function(err,result){
     if(err){
       res.status(500).send(msg('Server error'+err.toString()));
     }
@@ -148,10 +149,11 @@ app.get('/blogs/:category/:title',function(req,res){
         res.status(404).send(msg('Article Not Found.'));
       }
       else{
-            pool.query("SELECT tag FROM tag where article_hash=$1",[result.rows[0].hash],function(errt,resultt){
+            pool.query("SELECT tag FROM tag where article_hash=MD5($1)",[article_unhashed],function(errt,resultt){
                     if(!errt){
                       res.send(jstring({"article":result.rows[0],"tags":resultt}));
                     }
+                    
             });
           }
         }
@@ -234,6 +236,9 @@ app.post('/post/feedback',function(req,res){
   }
   else if(!emailValidate(email)){
     res.status(400).send('I won\'t tell you the correct format of email. Try another email.' );
+  }
+  else if(comment.length>1000){
+       res.status(400).send('Give your feedback in less than 1000 chars.' );
   }
   else{
     if(req.session && req.session.auth && req.session.auth.username)
