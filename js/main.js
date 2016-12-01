@@ -189,7 +189,6 @@ $('#article-submit').click(function(){
   var category=$('#article-category').val();
   var tags=$('#article-tags').val();
   var content=$('#article-content').val();
-  tinymce.triggerSave();
   $('#article-title').val('');
   $('#article-tags').val('');
   $('#article-content').val('');
