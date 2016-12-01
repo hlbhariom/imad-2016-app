@@ -260,7 +260,7 @@ app.post('/register',function(req,res){
   else if(!username.trim() || !password.trim() || username.length>32 || password.length>32){
     res.status(400).send('Cannot leave username or password blank.Please Enter Username/Password:(Upto 32 chars)')
   }
-  else if(!/^[a-zA-Z0-9_.@]+$/.test(username)){  //If username contains other than a-z,A-Z,0-9 then true.
+  else if(!/^[a-zA-Z0-9_.@ ]+$/.test(username)){  //If username contains other than a-z,A-Z,0-9 then true.
         res.status(500).send("Username can't contain special characters except _.@");
 	}else{
 
