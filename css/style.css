@@ -120,13 +120,13 @@ span.black{
   }
 #occupation,#workplace{
     font-family: 'Nunito', sans-serif;
-    color: #4efff0;
+    color: crimson;
     font-size: large;
     text-shadow: 1px 1px 1px black;
   }
   h1.page-header{
     font-family: 'Nunito', sans-serif;
-    text-shadow: 1px 2px 2px black;
+    color: black;
     margin: 20px auto;
   }
 
