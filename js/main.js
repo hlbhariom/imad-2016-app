@@ -190,7 +190,7 @@ $('#article-submit').click(function(){
   var tags=$('#article-tags').val();
   var content=$('#article-content').val();
   $('#article-title').val('');
-  $('#article-tags').val('');
+  $('#article-tags').val('').split(',');
   $('#article-content').val('');
   $('#article-category').val('Select Category');
     $.ajax({
