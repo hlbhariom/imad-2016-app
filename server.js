@@ -180,7 +180,7 @@ app.post('/post/article',checkAdmin,function(req,res){
   var title=req.body.title;
   var category=req.body.category;
   var content=req.body.content;
-  var tags=req.body.tags.split(',');
+  var tags=req.body.tags;
   if(!title.trim() || !category.trim() || !content.trim()){
     res.status(400).send('Please Fill The Fields Properly.')
   }else{
