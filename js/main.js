@@ -187,10 +187,10 @@ function getComments (currentArticleTitle) {
 $('#article-submit').click(function(){
   var title=$('#article-title').val();
   var category=$('#article-category').val();
-  var tags=$('#article-tags').val();
+  var tags=$('#article-tags').val().split(',');
   var content=$('#article-content').val();
   $('#article-title').val('');
-  $('#article-tags').val('').split(',');
+  $('#article-tags').val('');
   $('#article-content').val('');
   $('#article-category').val('Select Category');
     $.ajax({
