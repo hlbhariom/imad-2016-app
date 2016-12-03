@@ -181,6 +181,7 @@ app.post('/post/article',checkAdmin,function(req,res){
   var category=req.body.category;
   var content=req.body.content;
   var tags=req.body.tags;
+  console.log('\n\n'+tags+'\n\n');
   if(!title.trim() || !category.trim() || !content.trim()){
     res.status(400).send('Please Fill The Fields Properly.')
   }else{
