@@ -1,0 +1,16 @@
+{
+  "name": "imad-2016-app",
+  "description": "Personal Blog website developed during IMAD course.",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
