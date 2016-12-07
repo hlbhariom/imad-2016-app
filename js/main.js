@@ -11,8 +11,8 @@ $(document).ajaxStart(function(e){
 });
 $(document).ajaxComplete(function(){
   $('input,textarea').val('').trigger('keyup');
-  //$('#loadingref').remove();
-  $('#loader').remove();
+  $('#loadingref').remove();
+  //$('#loader').remove();
 });
 function escapeHTML (text)
 {
@@ -24,8 +24,8 @@ function escapeHTML (text)
 
 $(document).ready(function(){
     $('[type=submit]').click(function(){
-        //$(this).append(loadingref);
-        $(this).append('<div id=loader></div>');
+        $(this).append(loadingref);
+       // $(this).append('<div id=loader></div>');
     });
     $('#profile').css('background-image', 'url("/image/cover.jpg")');
     $('#blogs').css('background-image', 'url("/image/blogbg.jpg")');
