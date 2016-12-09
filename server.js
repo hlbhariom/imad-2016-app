@@ -20,7 +20,6 @@ app.use(session({
 
 }));
 var blogRootUser='Hariom';
-var sanitize=require('sanitize-html');
 var config={
       'prod':{
           user: 'hlbhariom',
@@ -175,14 +174,13 @@ app.get('/getComments/:article_hash',function(req,res){
 
 /*Data Requests End Here*/
 
-/*Post Request Start Here*/
-app.post('/post/article',checkAuth/*,checkAdmin*/,function(req,res){
-  var title=sanitize(req.body.title);
-  var category=sanitize(req.body.category);
-  var content=sanitize(req.body.content);
-  var tags=sanitize(req.body.tags);
 
-  console.log('\n\n'+tags+'\n\n');
+/*Post Request Start Here*/
+app.post('/post/article',checkAdmin,function(req,res){
+  var title=req.body.title;
+  var category=req.body.category;
+  var content=req.body.content;
+  var tags=req.body.tags.split(',');
   if(!title.trim() || !category.trim() || !content.trim()){
     res.status(400).send('Please Fill The Fields Properly.')
   }else{
@@ -198,7 +196,7 @@ app.post('/post/article',checkAuth/*,checkAdmin*/,function(req,res){
       res.send('Congrats! Blog Submitted Succesfully.');
     }
     else{
-      res.status(500).send('You might be using same title for two blogs in same category.'+err.toString());
+      res.status(500).send('You might be using same title for two blogs in same category.'+err.toString())
     }
 
   });
@@ -300,8 +298,8 @@ app.post('/login',function(req,res){
   var username = req.body.username;
   var password = req.body.password;
   if(!username.trim() || !password.trim() || username.length>32 || password.length>32){
-    res.status(400).send('Cannot leave username or password blank. Please Enter Username/Password:(Upto 32 chars)');
-  } else{
+    res.status(400).send('Cannot leave username or password blank. Please Enter Username/Password:(Upto 32 chars)')
+  }
    pool.query('SELECT * FROM "user" WHERE username = $1 or email=$1', [username], function (err, result) {
       if (err) {
           res.status(500).send(err.toString());
@@ -327,8 +325,6 @@ app.post('/login',function(req,res){
           }
       }
    });
-
-  }
 });
 app.get('/check-login',checkAuth,function (req, res) {
   var username;
