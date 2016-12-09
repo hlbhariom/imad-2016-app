@@ -16,6 +16,5 @@
     "pg": "^6.1.0",
     "sanitize-html": "^1.13.0",
     "tinymce": "^4",
-    "xss-filters": "^1.2.7"
   }
 }
