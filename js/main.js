@@ -189,8 +189,7 @@ function getComments (currentArticleTitle) {
 $('#article-submit').click(function(){
   var title=$('#article-title').val();
   var category=$('#article-category').val();
-  var tags=$('#article-tags').val().split(',');
-  console.log(tags);
+  var tags=$('#article-tags').val();
   var content=$('#article-content').val();
   $('#article-title').val('');
   $('#article-tags').val('');
@@ -204,7 +203,7 @@ $('#article-submit').click(function(){
       success: function(data,msg)
                 { alert(data) },
       error: function(err)
-        { console.log(err.responseText)}
+        { alert(err.responseText)}
     });
 });
 //SignUp
@@ -365,8 +364,9 @@ function unloadAdmin(){
 function loggedinUser(username){
   console.log(username);
   $('a.navbar-brand').html('Welcome '+username+'!');
-  if(username==="admin") loadAdmin();
-  else unloadAdmin();
+  if(username==="admin")/* loadAdmin();
+  else unloadAdmin();*/
+  $.getScript('/js/tinymce-init.js');
   var signout=`<li><a href="#signout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>`;
 
   $('ul#accountBar').html(signout);
