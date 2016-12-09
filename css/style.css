@@ -44,7 +44,7 @@ span.black{
 #compose{
   min-height: 588px;
   /*background-image:url("/image/compose.jpg");*/
-  display: none;
+  /*display: none;*/
 }
 #compose>form{
   margin-bottom: 10px;

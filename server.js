@@ -20,6 +20,7 @@ app.use(session({
 
 }));
 var blogRootUser='Hariom';
+var sanitize=require('sanitize-html');
 var config={
       'prod':{
           user: 'hlbhariom',
@@ -153,7 +154,7 @@ app.get('/blogs/:category/:title',function(req,res){
                     if(!errt){
                       res.send(jstring({"article":result.rows[0],"tags":resultt}));
                     }
-                    
+
             });
           }
         }
@@ -174,13 +175,13 @@ app.get('/getComments/:article_hash',function(req,res){
 
 /*Data Requests End Here*/
 
-
 /*Post Request Start Here*/
-app.post('/post/article',checkAdmin,function(req,res){
-  var title=req.body.title;
-  var category=req.body.category;
-  var content=req.body.content;
-  var tags=req.body.tags;
+app.post('/post/article',checkAuth/*,checkAdmin*/,function(req,res){
+  var title=sanitize(req.body.title);
+  var category=sanitize(req.body.category);
+  var content=sanitize(req.body.content);
+  var tags=sanitize(req.body.tags);
+
   console.log('\n\n'+tags+'\n\n');
   if(!title.trim() || !category.trim() || !content.trim()){
     res.status(400).send('Please Fill The Fields Properly.')
@@ -197,7 +198,7 @@ app.post('/post/article',checkAdmin,function(req,res){
       res.send('Congrats! Blog Submitted Succesfully.');
     }
     else{
-      res.status(500).send('You might be using same title for two blogs in same category.'+err.toString())
+      res.status(500).send('You might be using same title for two blogs in same category.'+err.toString());
     }
 
   });

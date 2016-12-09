@@ -21,9 +21,9 @@ statubar: true,
 
 /* plugin */
 plugins: [
-"advlist autolink autoresize link image lists charmap print preview hr anchor pagebreak",
+"advlist autolink autoresize link image lists charmap print hr anchor pagebreak",
 "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
-"save table directionality code emoticons paste textcolor"
+"save table directionality emoticons paste textcolor"
 ],
 
 /* toolbar */

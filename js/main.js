@@ -365,8 +365,8 @@ function unloadAdmin(){
 function loggedinUser(username){
   console.log(username);
   $('a.navbar-brand').html('Welcome '+username+'!');
-  if(username==="admin") loadAdmin();
-  else unloadAdmin();
+  /*if(username==="admin") loadAdmin();
+  else unloadAdmin();*/
   var signout=`<li><a href="#signout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>`;
 
   $('ul#accountBar').html(signout);
