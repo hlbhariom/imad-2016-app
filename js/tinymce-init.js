@@ -14,14 +14,14 @@ element_format : 'html',
 convert_urls: false,
 /* width and height of the editor */
 width: "100%",
-autoresize_min_height: 250,
+autoresize_min_height: 240,
 
 /* display statusbar */
 statubar: true,
 
 /* plugin */
 plugins: [
-"advlist autolink autoresize link image lists charmap print hr anchor pagebreak",
+"advlist autolink autoresize link image lists charmap print preview hr anchor pagebreak",
 "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
 "save table directionality emoticons paste textcolor"
 ],
