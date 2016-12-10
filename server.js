@@ -201,18 +201,19 @@ app.post('/post/article',checkAuth,function(req,res){
   var category=req.body.category;
   var content=req.body.content;
   console.log(req.body.tags);
-  var tags=escape(req.body.tags).split(',');
-  if(req.session.auth.username!=blogRootUser){
-    title=escape(title);
-    content=escape(content);
-  }
+  var tags=req.body.tags.split(',');
+  
   if(!title.trim() || !category.trim() || !content.trim()){
     res.status(400).send('Please Fill The Fields Properly.')
   }else{
+      if(req.session.auth.username!=blogRootUser){
+            title=escape(title);
+            content=escape(content);
+        }
   pool.query('INSERT INTO article(title,category,date,content,hash) values($1,$2,NOW(),$3,MD5($4))',[title,category,content,title+category],function(err,result){
     if(!err){
       for(i=0;i<tags.length;i++){
-        pool.query('INSERT INTO tag values($1,MD5($2))',[tags[i],title+category],function(errtag,resulttag){
+        pool.query('INSERT INTO tag values($1,MD5($2))',[escape(tags[i].trim()),title+category],function(errtag,resulttag){
           if(errtag){
             res.status(500).send('You might be using duplicate tags'+errtag.toString());
           }
