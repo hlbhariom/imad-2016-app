@@ -27,7 +27,7 @@ $(document).ready(function(){
     $('[type=submit]').click(function(){
         //$(this).append(loadingref);
         var radius=$(this).height();
-       $(this).html($(this).html()+'<div id=loader></div>');
+       $(this).html($(this).html()+'<div id="loader"></div>');
        $('#loader').css({'height':radius,'width':radius});
        
     });
