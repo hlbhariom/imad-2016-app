@@ -10,7 +10,8 @@ $(document).ajaxStart(function(e){
 
 });
 $(document).ajaxComplete(function(){
-  $('#loginModal,#contact input,textarea').val('').trigger('keyup');
+  $('#loginModal input,textarea').val('').trigger('keyup');
+  $('#contact input,textarea').val('');
   $('#loadingref').remove();
   //$('#loader').remove();
 });
