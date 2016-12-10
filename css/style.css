@@ -173,13 +173,14 @@ span.black{
 }
 }
 #loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
+    border: 0.5rem solid #f3f3f3;
+    border-bottom: 0.5rem solid rgba(14, 14, 13, 0.89);
+    border-top: 0.5rem solid rgba(19, 21, 23, 0.96);
     border-radius: 50%;
     animation: spin 2s linear infinite;
+    display: inline-block;
+    /* height: 28px; */
+    /* width: 28px; */
+    vertical-align: top;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
