@@ -128,7 +128,6 @@ function emailValidate(email){
 
 /*Data Requests Start Here*/
 app.get('/blogs/:category',function(req,res){
-  //var category=req.params.category;
   var category=decodeURI(req.params.category);
   if(category=='latest'){
     query="SELECT title,category,date FROM article WHERE $1=$1 ORDER BY id DESC limit 5";
