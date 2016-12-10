@@ -6,9 +6,7 @@ $(document).click(function(e) {
         $('#navheader .collapse').collapse('hide');
     }
 });
-$(document).ajaxStart(function(e){
 
-});
 $(document).ajaxComplete(function(){
   $('#loginModal input,#loginModal textarea').val('').trigger('keyup');
   $('#contact input,#contact textarea').val('');
