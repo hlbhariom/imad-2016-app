@@ -326,6 +326,7 @@ app.post('/login',function(req,res){
   if(!username.trim() || !password.trim() || username.length>32 || password.length>32){
     res.status(400).send('Cannot leave username or password blank. Please Enter Username/Password:(Upto 32 chars)')
   }
+  else{
    pool.query('SELECT * FROM "user" WHERE username = $1 or email=$1', [username], function (err, result) {
       if (err) {
           res.status(500).send(err.toString());
@@ -351,6 +352,7 @@ app.post('/login',function(req,res){
           }
       }
    });
+  }
 });
 app.get('/check-login',checkAuth,function (req, res) {
   var username;
