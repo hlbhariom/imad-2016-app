@@ -1,6 +1,6 @@
 .glyphicon-refresh-animate {
-    -animation: spin .7s infinite linear;
-    -webkit-animation: spin .7s infinite linear;
+    -animation: spin1 .7s infinite linear;
+    -webkit-animation: spin1 .7s infinite linear;
 }
 
 @-webkit-keyframes spin1 {
