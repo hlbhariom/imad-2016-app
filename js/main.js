@@ -378,8 +378,9 @@ function loggedinUser(username){
     $.get('/logout',function(data,status){
       alert(data);
       location.reload();
-      init_login();
+      
     });
+    init_login();
   });
   $('ul#accountBar a[href="#signin"]').parent().remove();
   $('ul#accountBar a[href="#signup"]').parent().remove();
