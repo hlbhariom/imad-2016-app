@@ -371,7 +371,7 @@ function unloadAdmin(){
 function loggedinUser(username){
   console.log(username);
   $('a.navbar-brand').html('Welcome '+username+'!');
-  if(username==="admin")/* loadAdmin();
+  if(username==="admin")/* Will be used later loadAdmin();
   else unloadAdmin();*/
   $.getScript('/js/tinymce-init.js');
   var signout=`<li><a href="#signout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>`;
