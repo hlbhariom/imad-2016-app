@@ -25,9 +25,9 @@ function escapeHTML (text)
 $(document).ready(function(){
     $('[type=submit]').click(function(){
         var radius=$(this).height();
-       $(this).html($(this).html()+'<pre>  </pre><div id="loader"></div>');
+       $(this).html($(this).html()+'&nbsp;&nbsp;&nbsp;<div id="loader"></div>');
        $('#loader').css({'height':radius,'width':radius});
-       
+
     });
     $('#profile').css('background-image', 'url("/image/cover.jpg")');
     $('#blogs').css('background-image', 'url("/image/blogbg.jpg")');
@@ -194,7 +194,7 @@ $('#article-submit').click(function(){
   var category=$('#article-category').val();
   var tags=$('#article-tags').val();
   var content=$('#article-content').val();
-  
+
     $.ajax({
       type:'POST',
       url:'/post/article',
