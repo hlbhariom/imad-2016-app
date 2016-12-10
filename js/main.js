@@ -131,6 +131,7 @@ function init(){
                 error: function(err)
                   { console.log(err.responseText);
                     if(err.status==401){
+                      init_login();
                       $('a[href="#signin"][data-target="#loginModal"]').trigger('click');
                     }
                 }
@@ -206,7 +207,10 @@ $('#article-submit').click(function(){
                   $('#article-category').val('Select Category');
                 },
       error: function(err)
-        { alert(err.responseText)}
+        { alert(err.responseText);
+            if(err.status==401)
+                init_login();
+        }
     });
 });
 //SignUp
@@ -377,9 +381,8 @@ function loggedinUser(username){
   $('a[href="#signout"]').click(function(){
     $.get('/logout',function(data,status){
       alert(data);
-      location.reload();
-    }).ajaxComplete(function(){init_login();});
-    
+    });
+    init_login();
   });
   $('ul#accountBar a[href="#signin"]').parent().remove();
   $('ul#accountBar a[href="#signup"]').parent().remove();
