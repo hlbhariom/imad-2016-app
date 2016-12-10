@@ -12,8 +12,8 @@ $(document).ajaxStart(function(e){
 $(document).ajaxComplete(function(){
   $('#loginModal input,#loginModal textarea').val('').trigger('keyup');
   $('#contact input,#contact textarea').val('');
-  $('#loadingref').remove();
-  //$('#loader').remove();
+  //$('#loadingref').remove();
+  $('#loader').remove();
 });
 function escapeHTML (text)
 {
@@ -25,8 +25,11 @@ function escapeHTML (text)
 
 $(document).ready(function(){
     $('[type=submit]').click(function(){
-        $(this).append(loadingref);
-       //$(this).append('<div id=loader></div>');
+        //$(this).append(loadingref);
+        var radius=$(this).height();
+       $(this).html($(this).html()+'<div id=loader></div>');
+       $('#loader').css({'height':radius,'width':radius});
+       
     });
     $('#profile').css('background-image', 'url("/image/cover.jpg")');
     $('#blogs').css('background-image', 'url("/image/blogbg.jpg")');
