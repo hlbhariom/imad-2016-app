@@ -191,17 +191,19 @@ $('#article-submit').click(function(){
   var category=$('#article-category').val();
   var tags=$('#article-tags').val();
   var content=$('#article-content').val();
-  $('#article-title').val('');
-  $('#article-tags').val('');
-  $('#article-content').val('');
-  $('#article-category').val('Select Category');
+  
     $.ajax({
       type:'POST',
       url:'/post/article',
       data:JSON.stringify({"title":title,"category": category,"tags": tags,"content": content}),
       contentType:"application/json",
       success: function(data,msg)
-                { alert(data) },
+                { alert(data);
+                  $('#article-title').val('').trigger('keyup');
+                  $('#article-tags').val('').trigger('keyup');
+                  $('#article-content').val('').trigger('keyup');
+                  $('#article-category').val('Select Category');
+                },
       error: function(err)
         { alert(err.responseText)}
     });
