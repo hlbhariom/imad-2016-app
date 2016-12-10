@@ -68,7 +68,7 @@ var tagOrComment = new RegExp(
     + ')>',
     'gi');
 
-function removeTags(html) {
+function escape(html) {
   var oldHtml="";
   do {
     oldHtml = html;
