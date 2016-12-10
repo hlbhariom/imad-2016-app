@@ -380,6 +380,7 @@ function loggedinUser(username){
   $('a[href="#signout"]').click(function(){
     $.get('/logout',function(data,status){
       alert(data);
+      init_login();
     });
     init_login();
   });
