@@ -21,22 +21,14 @@ app.use(session({
 }));
 var blogRootUser='Hariom';
 var config={
-      'prod':{
-          user: 'hlbhariom',
-          database: 'hlbhariom',
-          host: 'db.imad.hasura-app.io',
+          user: 'latwlqplphbvye',
+          database: 'de944l2on8b971',
+          host: 'ec2-23-21-213-202.compute-1.amazonaws.com',
           port: '5432',
           password: process.env.DB_PASSWORD
-      },
-      'dev': {
-          user: 'hlbhariom',
-          database: 'hlbhariom',
-          host: 'localhost',
-          port: '5432',
-          password: 'password'
-      }
+      
 };
-var pool=new Pool(config.prod);
+var pool=new Pool(config);
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
