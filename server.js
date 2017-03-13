@@ -21,12 +21,12 @@ app.use(session({
 }));
 var blogRootUser='Hariom';
 var config={
-          user: 'latwlqplphbvye',
-          database: 'de944l2on8b971',
-          host: 'ec2-23-21-213-202.compute-1.amazonaws.com',
+          user: process.env.DB_USER,
+          database: process.env.DB_NAME,
+          host: process.env.DB_HOST,
           port: '5432',
           password: process.env.DB_PASSWORD
-      
+
 };
 var pool=new Pool(config);
 
@@ -194,7 +194,7 @@ app.post('/post/article',checkAuth,function(req,res){
   var content=req.body.content;
   console.log(req.body.tags);
   var tags=req.body.tags.split(',');
-  
+
   if(!title.trim() || !category.trim() || !content.trim()){
     res.status(400).send('Please Fill The Fields Properly.')
   }else{
@@ -361,8 +361,7 @@ app.get('/logout', checkAuth,function (req, res) {
 });
 /*Post Request End Here*/
 
-
-var port = 8080;// Use 8080 for local development because you might already have apache running on 80
-app.listen(8080, function () {
+var port = process.env.PORT || 8080;// Use 8080 for local development because you might already have apache running on 80
+app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
